@@ -35,24 +35,22 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 	echo '<option value="'.$SellerNick.'">'.$SellerNick.'</option>';
 	}
 ?>
-</select></td><td><button id='filterbutton'class="btn btn-primary btn-sm" disabled>Filter <span class="glyphicon glyphicon-filter"></span></button></td></tr></tbody></table></div>
-</div>
-
-
-<table width="100%"  class="table table-striped table-bordered table-condensed sticky-header" id="table">
-<thead>
-    <tr>
-      <th scope="col" >Country</th>
-      <th scope="col">Site Name</th>
-      <th scope="col">Available Information</th>
-      <th scope="col">Seller</th>
-      <th scope="col">Price</th>
-      <th scope="col">Added on </th>
-      <th scope="col">Buy</th>
-    </tr>
-</thead>
-  <tbody>
-
+ <div class="col-sm-12 table-responsive">
+          <table id="account_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
+            <thead>
+              <tr>
+                <th data-priority="1"></th>
+                <th class="all">ID</th>
+                <th data-priority="3">Country</th>
+                <th data-priority="4">Website Name</th>
+                <th data-priority="7">Available Details</th>
+                <th data-priority="8">Seller</th>
+                <th data-priority="9">Price</th>
+                <th data-priority="10">Date Created</th>
+                <th class="all">Buy</th>
+              </tr>
+            </thead>
+          </table>
  <?php
 include("cr.php");
 $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
