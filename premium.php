@@ -503,7 +503,17 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
       </div>
       <script>    
       $(document).ready( function () {
-      $('#myTable').DataTable(); } );
+      $('#myTable').DataTable(
+        );
+         } 
+        );
+</script>
+<script>
+    $.ajax({
+    type:       'GET',
+    url:        'divPage7.html',
+    success:    function(data)
+    {
       </script>
       
       <script>
