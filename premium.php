@@ -248,7 +248,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
       padding-bottom: 0.5rem;
       padding-left: 1rem;
       ">
-      <a class="navbar-brand" href="main.html" style="color: var(--font-color);"><img width="40px" src="layout/images/logo.png">XBASELEET</a>
+      <a class="navbar-brand" href="main" style="color: var(--font-color);"><img width="40px" src="layout/images/logo.png">XBASELEET</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="navbar-toggler-icon"></i>
       </button>
