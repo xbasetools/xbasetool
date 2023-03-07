@@ -26,8 +26,8 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="layout/js/bootstrap.min.js"></script>
 <script src="layout/js/bootbox.min.js"></script>
-<link rel="stylesheet" type="text/css" href="layout/css/flags.css" />....................................................................
-
+<link rel="stylesheet" type="text/css" href="layout/css/flags.css" /> 
+	
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
@@ -487,7 +487,7 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
     </div>
  <div id="container=fluid">
 <table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-<table width="100%"  class="table table-striped table-bordered table-condensed sticky-header" id="myTable">
+<table width="100%"  class="myTable table-striped table-bordered table-condensed sticky-header" id="myTable">
 <thead>
     <tr>
       <th scope="col" >Country</th>
@@ -561,8 +561,10 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 										 </div>
 										 </div>
 										 </div>
-						       <script type="text/javascript">
-										     
+						                                    <script type="text/javascript">
+										    let table = new DataTable('#myTable', {
+										    responsive: true});
+														  </script>
 										     
 										     
 										     
