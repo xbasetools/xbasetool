@@ -21,7 +21,8 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   <!-- Bootstrap css  -->
 <title>Accounts</title>
 <link rel="stylesheet" href="layout/css/bootstrap.min.css">
-<script src="layout/js/jquery-3.4.1.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script src="layout/js/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="layout/js/bootstrap.min.js"></script>
