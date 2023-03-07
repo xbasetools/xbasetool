@@ -467,27 +467,30 @@ a.closearb {
 <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
 <select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
 <option value="">All Countries</option>
-<option value="France">France</option>
-<option value="Mexico">Mexico</option>
-<option value="Netherlands">Netherlands</option>
-<option value="United Kingdom">United Kingdom</option>
-<option value="United States">United States</option>
-<option value="WorldWide">WorldWide</option> 
+<?php
+$query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `accounts` WHERE `sold` = '0' ORDER BY country ASC");
+	while($row = mysqli_fetch_assoc($query)){
+	echo '<option value="'.$row['country'].'">'.$row['country'].'</option>';
+	}
+?>
 </select>
+	
+	
 </div>
-
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
 <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
 <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-       
-       <option value="">All</option>
-<option value="Seller278">Seller278</option>
-<option value="Seller370">Seller370</option>
-<option value="Seller288">Seller288</option>
-<option value="Seller443">Seller443</option>
-<option value="Seller218">Seller218</option>
-<option value="Seller306">Seller306</option>
-<option value="Seller467">Seller467</option> 
+ <?php
+$query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHERE `sold` = '0' ORDER BY resseller ASC");
+	while($row = mysqli_fetch_assoc($query)){
+		 $qer = mysqli_query($dbcon, "SELECT DISTINCT(`id`) FROM resseller WHERE username='".$row['resseller']."' ORDER BY id ASC")or die(mysql_error());
+		   while($rpw = mysqli_fetch_assoc($qer))
+			 $SellerNick = "seller".$rpw["id"]."";
+	echo '<option value="'.$SellerNick.'">'.$SellerNick.'</option>';
+	}
+?>      
+                            <option value="">All</option>
+
 </select>
 </div>
 </div>
@@ -497,11 +500,11 @@ a.closearb {
 <thead>
 <tr>
 <th data-priority="1"></th>
-<th data-priority="3">Website Name</th>
-<th data-priority="4">Country</th>
-<th data-priority="7">Details</th>
-<th data-priority="8">Price</th>
-<th data-priority="9">Seller</th> 
+<th data-priority="3">Country</th>
+<th data-priority="4">Website Name</th>
+<th data-priority="7">Avaliable Details</th>
+<th data-priority="8">Seller</th>
+<th data-priority="9">Price</th> 
 <th data-priority="11">Date Created</th>
 <th class="all">Buy</th>
 </tr>
