@@ -341,12 +341,12 @@ Send
 <a class="nav-link dropdown-toggle" role="button" style="color: var(--font-color);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fab fa-drupal text-primary fa-sm"></i> Requests
 </a>
 <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="requests.html" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-user-plus"></i> Buyers Requests <span class="badge badge-primary"><span id=" "></span></span></a>
+<a class="dropdown-item" href="requests" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-user-plus"></i> Buyers Requests <span class="badge badge-primary"><span id=" "></span></span></a>
 </div>
 </li>
 
 <li class="nav-item dropdown">
-<a class="nav-link" href="offers.html" style="color: var(--font-color);"><i class="fas fa-user-secret text-primary fa-sm"></i> Bulk Offers</a>
+<a class="nav-link" href="offers" style="color: var(--font-color);"><i class="fas fa-user-secret text-primary fa-sm"></i> Bulk Offers</a>
 </li>
 </ul>
 
@@ -379,11 +379,10 @@ Send
 <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> hustlersfather <i class="fa fa-user-secret" style="color: var(--font-color);"></i></a>
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: var(--font-color); background-color: var(--color-nav);">
-<a class="dropdown-item" href="setting.html" style="color: var(--font-color);"><span class="px-2">Setting <i class="fa fa-cog"></i></span></a>
-<a class="dropdown-item" href="seller-profile.html" style="color: var(--font-color);"><span class="px-2">Profile <i class="fa fa-user"></i></span></a>
-<a class="dropdown-item" href="orders.html" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
-<a class="dropdown-item" href="addBalance.html" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
-<a class="dropdown-item" href="login.html" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
+<a class="dropdown-item" href="setting" style="color: var(--font-color);"><span class="px-2">Setting <i class="fa fa-cog"></i></span></a>
+<a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
+<a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
+<a class="dropdown-item" href="login" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
 </div>
 </li>
 
@@ -440,16 +439,12 @@ a.closearb {
 <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Website Name :</label>
 <select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
 <option value="">All</option>
-<option value="Cbs.com">Cbs.com</option>
-<option value="DisneyPlus ESPN hulu">DisneyPlus ESPN hulu</option>
-<option value="disneyplus.com">disneyplus.com</option>
-<option value="http://187.217.209.234:705/">http://187.217.209.234:705/</option>
-<option value="https://app.plex.tv/">https://app.plex.tv/</option>
-<option value="https://hulu.com">https://hulu.com</option>
-<option value="https://my.roku.com/">https://my.roku.com/</option>
-<option value="https://network.wwe.com">https://network.wwe.com</option>
-<option value="https://play.hbomax.com/">https://play.hbomax.com/</option>
-<option value="https://tidal.com">https://tidal.com</option><
+<?php
+$query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `accounts` WHERE `sold` = '0' ORDER BY country ASC");
+	while($row = mysqli_fetch_assoc($query)){
+	echo '<option value="'.$row['sitename'].'">'.$row['sitename'].'</option>';
+	}
+?>
 </select>
 </div>
 
@@ -457,6 +452,9 @@ a.closearb {
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
 <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Details:</label>
 <input type="search" class="form-control" id="infos" style="color: var(--font-color); background-color: var(--color-card);">
+														   
+															   
+															   
 </div>
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
 <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
