@@ -487,22 +487,25 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 </div>
     </div>
  <div id="container=fluid">
-<table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-<table width="100%"  class="myTable table-striped table-bordered table-condensed sticky-header" id="myTable">
-<thead>
-    <tr>
-      <th scope="col" >Country</th>
-      <th scope="col">WebSite Name</th>
-      <th scope="col">Available Details</th>
-      <th scope="col">Seller</th>
-      <th scope="col">Price</th>
-      <th scope="col">Created Date</th>
-      <th scope="col">Buy</th>
-    </tr>
-</thead>
-  <tbody>
-  </div>
-</div>
+    <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
+        <div class="col-sm-12 table-responsive">
+            <table id="myTable" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
+                <thead>
+                    <tr>
+                        <th data-priority="1"></th>
+                        <th class="all">ID</th>
+                       <th data-priority="3">Country</th>
+                        <th data-priority="4">Website Name</th>
+                        <th data-priority="7">Available Details</th>
+                        <th data-priority="8">Seller</th>
+                        <th data-priority="9">Price</th>
+                        <th data-priority="10">Date Created</th>
+                        <th class="all">Buy</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-notify modal-success" role="document">
 <div class="modal-content">
