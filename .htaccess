@@ -5,7 +5,7 @@ RewriteRule ^index.html$  index.php
 RewriteRule ^signup.html$  signup.php
 RewriteRule ^forget.html$  forget.php
 RewriteRule ^reset.html$  resetpass.php
-RewriteRule ^login.html$  login.php
+RewriteRule ^login$  login.php
 RewriteRule ^loginpage1.html$  loginpage1.php
 RewriteRule ^loginpage2.html$  loginpage2.php
 RewriteRule ^loginpage3.html$  loginpage3.php
