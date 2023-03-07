@@ -465,8 +465,8 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `accounts` WHERE 
 	
 	
 </div>
-<div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-<label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
+             <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+    <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
 <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
  <?php
 $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHERE `sold` = '0' ORDER BY resseller ASC");
@@ -477,7 +477,6 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 	echo '<option value="'.$SellerNick.'">'.$SellerNick.'</option>';
 	}
 ?>
-<select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
      
                             <option value="">All Seller</option>
 
