@@ -506,7 +506,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 		$(document).ready(function() {
 			  $('#account_data').DataTable({
                         "processing": true,
-                        "serverSide": true,
+                   
                         "responsive": true,
                         "scrollX": true,
                         "order": [],
