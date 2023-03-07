@@ -502,9 +502,9 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
         </div>
       </div>
     <script src="js/premium.js"></script>
-      <script>    
+<script>    
       $(document).ready( function () {
       $('#account_data').DataTable();});
-</ script>
+</script>
 
 
