@@ -346,7 +346,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
     </nav>
       <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
         <div class="col-sm-12 table-responsive">
-            <div id="container=fluid">
+            <div class="container=fluid">
         
         </div>
       </div>
