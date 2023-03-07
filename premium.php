@@ -476,8 +476,10 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 			 $SellerNick = "seller".$rpw["id"]."";
 	echo '<option value="'.$SellerNick.'">'.$SellerNick.'</option>';
 	}
-?>      
-                            <option value="">All</option>
+?>
+<select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+     
+                            <option value="">All Seller</option>
 
 </select>
 </div>
