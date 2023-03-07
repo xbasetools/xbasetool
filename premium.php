@@ -440,7 +440,7 @@ a.closearb {
 <select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
 <option value="">All</option>
 <?php
-$query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `accounts` WHERE `sold` = '0' ORDER BY country ASC");
+$query = mysqli_query($dbcon, "SELECT DISTINCT(`sitename`) FROM `accounts` WHERE `sold` = '0' ORDER BY sitename. ASC");
 	while($row = mysqli_fetch_assoc($query)){
 	echo '<option value="'.$row['sitename'].'">'.$row['sitename'].'</option>';
 	}
