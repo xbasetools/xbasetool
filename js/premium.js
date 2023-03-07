@@ -47,13 +47,13 @@ function pageDiv(n,t,u,x){
 
     	}
       document.title = obj.Title;
-    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
+    $("#account_data").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
     $.ajax({
     type:       'GET',
     url:        'divPage'+n+'.html',
     success:    function(data)
     {
-        $("#mainDiv").html(data).show();
+        $("#account_data").html(data).show();
         newTableObject = document.getElementById('table');
         sorttable.makeSortable(newTableObject);
         $(".sticky-header").floatThead({top:60});
