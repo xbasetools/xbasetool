@@ -447,25 +447,20 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`sitename`) FROM `accounts` WHERE
 ?>
 </select>
 </div>
-
-
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
 <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Details:</label>
-<input type="search" class="form-control" id="infos" style="color: var(--font-color); background-color: var(--color-card);">
-														   
-															   
-															   
+<input type="search" class="form-control" id="infos" style="color: var(--font-color); background-color: var(--color-card);">															   
 </div>
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
 <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
 <select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-<option value="">All Countries</option>
 <?php
 $query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `accounts` WHERE `sold` = '0' ORDER BY country ASC");
 	while($row = mysqli_fetch_assoc($query)){
 	echo '<option value="'.$row['country'].'">'.$row['country'].'</option>';
 	}
 ?>
+	       <option value="">All Countries</option>
 </select>
 	
 	
