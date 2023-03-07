@@ -517,7 +517,21 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
                                 "visible": false
                             }
                         ],
-
+			"ajax":{
+                            url:"divPage7.html",
+                            type:"POST",
+                            data:{
+                             data_filter:myarray,
+                             cat:document.getElementById('cat').value,
+                             draw : 'draw',
+                             row : 'start',
+                             rowperpage : 'length',
+                             columnIndex : 'order',
+                             columnName : 'columns',
+                             columnSortOrder : 'order',
+                             searchValue : 'search'
+                             }
+                        },
 			} );
 		} );
 
