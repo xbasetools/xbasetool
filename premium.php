@@ -487,7 +487,7 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
     </div>
  <div id="container=fluid">
 <table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-<table width="100%"  class="table table-striped table-bordered table-condensed sticky-header" id="table">
+<table width="100%"  class="table table-striped table-bordered table-condensed sticky-header" id="myTable">
 <thead>
     <tr>
       <th scope="col" >Country</th>
@@ -527,7 +527,12 @@ $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()
      ';
  }
 
- ?>      
+ ?>     
+<script>
+let table = new DataTable('#myTable', {
+    // options
+});
+ </script>
 </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
