@@ -593,7 +593,7 @@ a.closearb {
                         ],
 
                         "ajax":{
-                            url:"divPage31.html",
+                            url:"divPage7.html",
                             type:"POST",
                             data:{
                              data_filter:myarray,
