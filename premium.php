@@ -561,13 +561,11 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 										 </div>
 										 </div>
 										 </div>
-						                                    <script type="text/javascript">
-										   var $ = require( 'jquery' );
-										   var DataTable = require( 'datatables.net' )(window, $);
-										    let table = new DataTable('#myTable', {
-											 // config options...
-										    });
-										   </script>
+						                      <script>									$(document).ready( function () {
+									$('#myTable').DataTable();
+												    } );
+								         </script>			    
+												    
 										     
 										     
 										     
