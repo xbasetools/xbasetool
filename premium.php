@@ -502,9 +502,15 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
         </div>
       </div>
     <script src="js/premium.js"></script>
-<script>    
-      $(document).ready( function () {
-      $('#account_data').DataTable();});
+<script>
+		$(document).ready(function() {
+			$('#example').DataTable( {
+				"lengthMenu": [[10, 25, 100, 500, -1], [10, 25, 100, 500, "All"]],
+				'iDisplayLength': 1000,
+				"aaSorting": []
+			} );
+		} );
+
 </script>
 
 
