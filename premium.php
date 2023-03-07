@@ -26,7 +26,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="layout/js/bootstrap.min.js"></script>
 <script src="layout/js/bootbox.min.js"></script>
-<link rel="stylesheet" type="text/css" href="layout/css/flags.css" />
+<link rel="stylesheet" type="text/css" href="layout/css/flags.css" />....................................................................
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
@@ -556,9 +556,32 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 <i class="fas fa-book ml-1 white-text"></i>
 </a>
 <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
-</div>
-</div>
-</div>
-
-</div>
-</div>
+										 </div>
+										 </div>
+										 </div>
+										 </div>
+										 </div>
+						       <script type="text/javascript">
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
+										     
