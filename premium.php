@@ -617,7 +617,7 @@ $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()
 
                         "ajax":{
                             url:"divPage7.html",
-                            type:"POST",
+                            type:"GET",
                             data:{
                              data_filter:myarray,
                              cat:document.getElementById('cat').value,
