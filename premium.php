@@ -532,9 +532,104 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
                              searchValue : 'search'
                              }
                         },
-			} );
-		} );
+                          "columns": [
+                                { "data": 0 },
+                                { "data": 1 },
+                                { "data": 2 },
+                                { "data": 3 },
+                                { "data": 4 },
+                                { "data": 5 },
+                                { "data": 6 },
+                                { "data": 7 },
+                                { "data": 8 },
+                                { "data": 9 },
+                                { "data": 10}
+                                ],
 
+                        "pageLength": 500
+                    });
+                }
+
+               $(document).on('change', '.form-control', function(){
+
+                    $('#account_data').DataTable().destroy();
+                var country = $('#country').val();
+                var details = $('#infos').val();
+                var seller1 = $('#seller').val();
+                var website = $('#sitename').val();
+                $idseller = seller1.split("Seller");
+                var seller= $idseller[1];
+                 var myarray = {};
+                 myarray[0] = country;
+                 myarray[1] = details;
+                 myarray[2] = seller;
+                 myarray[3] = website;
+
+
+              if(country != '' || details != '' || seller != '' || website != '')
+                {
+
+                   load_data(myarray);
+                }
+                else
+                {
+                    load_data();
+                }
+
+                });
+
+
+            });
+
+            function buythistool(id){
+         $('#modalConfirmBuy').modal('show');
+         webID= id;
+                        }
+
+        function confirmbye(id){
+              id= webID;
+                $.ajax({
+                            method:"GET",
+                            url:"buytool.php?id="+id+"&t=accounts",
+                            dataType:"text",
+                            success:function(data){
+                                    if(data.match("buy")){
+                                let lastid = data.split("buy,")[1];
+                                $("#premium"+id).html(`<button onclick=openitem(${lastid}) class="btn btn-success btn-sm" style="font-size: 11px; cursor:pointer">Order ${'#'+lastid}</button>`).show();
+
+                            }
+                            else{
+                                if(data.match("deleted")){
+
+                                $("#premium"+id).html('Already sold / Deleted').show();
+
+
+                                  }else{
+                                  $('#modalCoupon').modal('show');
+                                }
+                            }
+                            },
+                        });
+            }
+    function openitem(order){
+
+        $.ajax({
+        type:       'GET',
+        url:        'showOrder'+order,
+        success:    function(data)
+        {
+        $("#myModalHeader").text('Order #'+order);
+        $("#modelbody").append(data);
+        $('#myModal').modal();
+
+
+        }});
+
+        }
+
+        </script>
+</body>
+</html>
 </script>
 
 
