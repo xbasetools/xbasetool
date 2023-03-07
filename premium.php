@@ -483,10 +483,11 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 
 </select>
 </div>
-</div>
+    </div>
+ <div id="container=fluid">
 <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
 <div class="col-sm-12 table-responsive">
-<table id="account_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
+<table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
 <thead>
 <tr>
 <th data-priority="1"></th>
@@ -571,7 +572,7 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
                 load_data();
 
                 function load_data(myarray) {
-                    $('#account_data').DataTable({
+                    $('#table').DataTable({
                         "processing": true,
                         "serverSide": true,
                         "responsive": true,
@@ -620,7 +621,7 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 
                $(document).on('change', '.form-control', function(){
 
-                    $('#account_data').DataTable().destroy();
+                    $('#table').DataTable().destroy();
                 var country = $('#country').val();
                 var details = $('#infos').val();
                 var seller1 = $('#seller').val();
