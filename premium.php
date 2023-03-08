@@ -501,6 +501,7 @@ a.closearb {
 <table width=“100%”  class=“table table-striped table-bordered table-condensed sticky-header” id=“table”>
 <thead>
     <tr>
+      <th scope=“col” >ID</th>
       <th scope=“col” >Country</th>
       <th scope=“col”>website Name</th>
       <th scope=“col”> Details</th>
