@@ -1,7 +1,7 @@
 
              function ajaxinfo() {
                 $.ajax({
-                    type: 'POST',
+                    type: 'GET',
                     url: 'ajaxinfo.html',
                     timeout: 10000,
 
@@ -50,8 +50,8 @@ function pageDiv(n,t,u,x){
       document.title = obj.Title;
     $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
     $.ajax({
-    type:       'GET',
-    url:        'divPage'+n+'.html',
+    type:       'POST',
+    url:        'divPage7.html',
     success:    function(data)
     {
         $("#mainDiv").html(data).show();
