@@ -498,7 +498,7 @@ a.closearb {
 
       <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
     <div class="col-sm-12 myTable-responsive">
-<table width=“100%”  class=“myTable table-striped table-bordered table-condensed sticky-header” id=“table”>
+<table width=“100%”  class=“table table-striped table-bordered table-condensed sticky-header” id=“myTable”>
 <thead>
     <tr>
       <th scope=“col” >ID</th>
