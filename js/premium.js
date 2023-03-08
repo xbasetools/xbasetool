@@ -1,7 +1,7 @@
 
              function ajaxinfo() {
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: 'ajaxinfo.html',
                     timeout: 10000,
 
