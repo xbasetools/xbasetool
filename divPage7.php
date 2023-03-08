@@ -76,8 +76,6 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 <option value="">All Sellers</option>
  </select>
 </div>
-
-<div class="table-responsive-md">
 <table class="table table-responsive-md" id="table">
     <thead>
         <tr>
