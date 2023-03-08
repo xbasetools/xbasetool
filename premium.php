@@ -458,8 +458,21 @@ Send
   </div>
   <!-- /.container-fluid -->
 </nav>    <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
- <div id="mainDiv">
-
+<div class="col-sm-12 table-responsive">
+<div id="mainDiv">
+<thead>
+    <tr>
+      <th scope="col" >Country</th>
+      <th scope="col">Site Name</th>
+      <th scope="col">Available Information</th>
+      <th scope="col">Seller</th>
+      <th scope="col">Price</th>
+      <th scope="col">Added on </th>
+      <th scope="col">Buy</th>
+    </tr>
+</thead>
+  <tbody>
+    
     
     
     
