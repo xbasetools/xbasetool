@@ -459,7 +459,7 @@ Send
   <!-- /.container-fluid -->
 </nav>    <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
 <div class="col-sm-12 table-responsive">
-<div id="mainDiv">
+<table id="mainDiv">
 <thead>
     <tr>
       <th scope="col" >Country</th>
