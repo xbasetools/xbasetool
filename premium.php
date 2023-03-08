@@ -498,21 +498,19 @@ a.closearb {
 
       <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
         <div class="col-sm-12 table-responsive">
-          <table id="account_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-            <thead>
-              <tr>
-              
-                <th>ID</th>
-                <th>Country</th>
-                <th>Website Name</th>
-                <th>Available Details</th>
-                <th>Seller</th>
-                <th>Price</th>
-                <th>Date Created</th>
-                <th>Buy</th>
-              </tr>
-            </thead>
-          </table>
+<table width=“100%”  class=“table table-striped table-bordered table-condensed sticky-header” id=“table”>
+<thead>
+    <tr>
+      <th scope=“col” >Country</th>
+      <th scope=“col”>website Name</th>
+      <th scope=“col”> Details</th>
+      <th scope=“col”>Seller</th>
+      <th scope=“col”>Price</th>
+      <th scope=“col”>Added on </th>
+      <th scope=“col”>Buy</th>
+    </tr>
+</thead>
+  <tbody>
  <?php
 include("cr.php");
 $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
