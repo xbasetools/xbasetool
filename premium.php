@@ -623,10 +623,10 @@ a.closearb {
                $(document).on('change', '.form-control', function(){
 
                     $('#account_data').DataTable().destroy();
-                var country = $('#country').val();
-                var details = $('#infos').val();
-                var seller1 = $('#seller').val();
-                var website = $('#sitename').val();
+                var acccount_country = $('#country').val();
+                var sitename = $('#infos').val();
+                var account_seller  = $('#seller').val();
+                var account_sitename = $('#sitename').val();
                 $idseller = seller1.split("Seller");
                 var seller= $idseller[1];
                  var myarray = {};
