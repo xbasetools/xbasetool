@@ -87,20 +87,17 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
       </div>
       <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
         <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
-        <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-          <?php
+        <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">  <option value="">All Sellers </option> <?php
           $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHERE `sold` = '0' ORDER BY resseller ASC");
           while($row = mysqli_fetch_assoc($query)){
           $qer = mysqli_query($dbcon, "SELECT DISTINCT(`id`) FROM resseller WHERE username='".$row['resseller']."' ORDER BY id ASC")or die(mysql_error());
           while($rpw = mysqli_fetch_assoc($qer))
           $SellerNick = "seller".$rpw["id"]."";
-          echo '<option value="'.$SellerNick.'">'.$SellerNick.'</option>';
-          }
-          ?>
-          
-          <option value="">All Seller</option>
+          echo '<option value="'.$SellerNick.'">'.$SellerNick.'</option>';}?>
         </select>
+        
       </div>
+    
     </div>
       <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
         <div class=" table-responsive">
