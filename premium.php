@@ -325,14 +325,14 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
               <a class="nav-link dropdown-toggle" role="button" style="color: var(--font-color);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fab fa-drupal text-primary fa-sm"></i> Requests
               </a>
               <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="requests" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-user-plus"></i> Buyers Requests <span class="badge badge-primary"><span id=" "></span></span></a>
+                <a class="dropdown-item" href="#" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-user-plus"></i> <> <span class="badge badge-primary"><span id=" "></span></span></a>
               </div>
             </li>
              
              
              
             <li class="nav-item dropdown">
-              <a class="nav-link" href="offers" style="color: var(--font-color);"><i class="fas fa-user-secret text-primary fa-sm"></i> Bulk Offers</a>
+              <a class="nav-link" href="#" style="color: var(--font-color);"><i class="fas fa-user-secret text-primary fa-sm"></i> <></a>
             </li>
           </ul>
            
@@ -382,6 +382,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
               <a class="dropdown-item" href="setting" style="color: var(--font-color);"><span class="px-2">Setting <i class="fa fa-cog"></i></span></a>
               <a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
               <a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
+                                             <li class="divider"></li>
               <a class="dropdown-item" href="login" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
                      </ul>
         </li>
