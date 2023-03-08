@@ -462,26 +462,7 @@ Send
     
     
 </div>
-
-<script type="text/javascript">
-  document.title = obj.Title;
-    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
-    $.ajax({
-    type:       'GET',
-    url:        'divPage'+n+'.html',
-    success:    function(data)
-    {
-        $("#mainDiv").html(data).show();
-        newTableObject = document.getElementById('table');
-        sorttable.makeSortable(newTableObject);
-        $(".sticky-header").floatThead({top:60});
-        if(x==0){ajaxinfo();}
-      }});
-    if (typeof stopCheckBTC === 'function') { 
-    var a = stopCheckBTC();
-     }
-
-}
+<script src="js/premium.js"></script>
 </script> 
 </body>
 </html>
