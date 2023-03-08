@@ -429,8 +429,10 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
       <option value="">All</option>
  <option value="Seller349">Seller349</option>
-              </select>
-              </div>
+            
+                  </select>
+        </div>
+    </div>
                        
                       
                       
