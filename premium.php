@@ -140,7 +140,7 @@
         $('#myModal').modal();
         }});  }
         </script>
-        <script src="js/Premium.js">
+        <script src="js/premium.js">
         
         </script>
       </body>
