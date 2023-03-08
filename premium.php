@@ -1,14 +1,4 @@
- <?php
-ob_start();
-session_start();
-date_default_timezone_set('UTC');
-include "includes/config.php";
-if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
-header("location: ../");
-exit();
-}
-$usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
-?>
+ 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,7 +31,6 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('set', {'$usrid': 'USER_ID'}); // Set the user ID using signed-in user_id.
     gtag('config', 'UA-177092549-1');
     </script>
     <link rel="stylesheet" href="layout/css/all.min.css" />
@@ -57,7 +46,6 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
     <style>@import url(https://fonts.googleapis.com/css?family=Roboto:400);
     .navbar-nav .dropdown-menu
     {
-    margin:0 !important
     }
     </style>
   </head>
@@ -233,9 +221,65 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
     }
     })();
     </script>
+<style>
+#table {
+  .sortable
+}
+table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25BE" 
+}
+
+.label-as-badge {
+    border-radius: 0.5em;
+}
+
+body {
+    padding-top:50px;
+}
+table.floatThead-table {
+    border-top: none;
+    border-bottom: none;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+#mydiv {
+  height: 400px;
+  position: relative;
+}
+.ajax-loader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; /* presto! */
+
+}
+.label-primary {
+    background-color: #910606;
+}
+.btn-primary {
+    color: #ffffff;
+    background-color: #910606;
+    border-color: #910606;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #910606;
+}
+
+   
     
-    <script>
-    
+
+</style>
+<script type="text/javascript">
              function ajaxinfo() {
                 $.ajax({
                     type: 'GET',
@@ -287,8 +331,8 @@ function pageDiv(n,t,u,x){
       document.title = obj.Title;
     $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
     $.ajax({
-    type:       'POST',
-    url:        'divPage7.html',
+    type:       'GET',
+    url:        'divPage'+n+'.html',
     success:    function(data)
     {
         $("#mainDiv").html(data).show();
@@ -311,7 +355,7 @@ $(window).on("popstate", function(e) {
 
 $(window).on('load', function() {
 $('.dropdown').hover(function(){ $('.dropdown-toggle', this).trigger('click'); });
-   pageDiv(7,'Premium/Dating/Shopping - JeruxShop','accounts',1);
+   pageDiv(7,'Main - FeluxShop','accounts',1);
    var clipboard = new Clipboard('.copyit');
     clipboard.on('success', function(e) {
       setTooltip(e.trigger, 'Copied!');
@@ -333,7 +377,7 @@ function setTooltip(btn, message) {
 function hideTooltip(btn) {
   setTimeout(function() {$(btn).tooltip('hide'); console.log("hide-2");}, 1000);
 }
-    </script>
+</script>
     <nav class="navbar navbar-expand-xl navbar  navbar-light " style="
       position:fixed;
       background-color: var(--color-nav);
@@ -349,7 +393,7 @@ function hideTooltip(btn) {
       padding-bottom: 0.5rem;
       padding-left: 1rem;
       ">
-      <a class="navbar-brand" href="main.html" style="color: var(--font-color);"><img width="40px" src="layout/images/logo.png">XBASELEET</a>
+      <a class="navbar-brand" href="main" style="color: var(--font-color);"><img width="40px" src="layout/images/logo.png">XBASELEET</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="navbar-toggler-icon"></i>
       </button>
@@ -496,6 +540,7 @@ function hideTooltip(btn) {
           echo '<option value="'.$row['sitename'].'">'.$row['sitename'].'</option>';
           }
           ?>
+
         </select>
       </div>
       <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
@@ -505,13 +550,14 @@ function hideTooltip(btn) {
       <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
         <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
         <select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-          <?php
+           <option value="">All Countries</option>
+  <?php
           $query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `accounts` WHERE `sold` = '0' ORDER BY country ASC");
           while($row = mysqli_fetch_assoc($query)){
           echo '<option value="'.$row['country'].'">'.$row['country'].'</option>';
           }
           ?>
-          <option value="">All Countries</option>
+       
         </select>
         
         
@@ -519,7 +565,9 @@ function hideTooltip(btn) {
       <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
         <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
         <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-          <?php
+       
+          <option value="">All Seller</option>
+   <?php
           $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHERE `sold` = '0' ORDER BY resseller ASC");
           while($row = mysqli_fetch_assoc($query)){
           $qer = mysqli_query($dbcon, "SELECT DISTINCT(`id`) FROM resseller WHERE username='".$row['resseller']."' ORDER BY id ASC")or die(mysql_error());
@@ -529,16 +577,27 @@ function hideTooltip(btn) {
           }
           ?>
           
-          <option value="">All Seller</option>
         </select>
       </div>
     </div>
     <div id="mainDiv">
-      
-      
-      
-      
-      
+      <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
+        <div class="col-sm-12 table-responsive">
+          <table id="account_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
+            <thead>
+              <tr>
+                <th data-priority="1"></th>
+                <th class="all">ID</th>
+                <th data-priority="3">Country</th>
+                <th data-priority="4">Website Name</th>
+                <th data-priority="7">Available Details</th>
+                <th data-priority="8">Seller</th>
+                <th data-priority="9">Price</th>
+                <th data-priority="10">Date Created</th>
+                <th class="all">Buy</th>
+              </tr>
+            </thead>
+          </table>
         </div>
       </div>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
@@ -589,9 +648,25 @@ function hideTooltip(btn) {
             </div>
           </div>
         </div>
-      </div>
-      <script>    
-      $(document).ready( function () {
-      $('#myTable').DataTable(); } );
-      </script>
-     
+      </div> 
+<script>
+		$(document).ready(function() {
+			  $('#account_data').DataTable({
+                        "processing": true,
+                        "responsive": true,
+                        "scrollX": true,
+                        "order": [],
+                        "lengthMenu": [[10, 25, 50, 100, 500, 10000], [10, 25, 50, 100, 500, "All"]],
+                        "columnDefs": [
+                            {
+                                "targets": [ 0 ],
+                                "visible": false
+                            }
+                        ],
+
+			} );
+		} );
+
+</script>
+
+
