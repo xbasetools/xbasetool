@@ -508,28 +508,22 @@ function hideTooltip(btn) {
 									  <input type=hidden id="cat" name="cat" value="3" />
 															  <div class="row m-3 pt-1" style="color: var(--font-color);">
 															  <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-															  <label for="infos" style="margin-bottom: 10px; margin-top: 5px">
-							    Website Name :</label>
-							   <select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+															  <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Website Name :</label>
+    <select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
 		     <option value="">All</option>
 	    <option value=""></option>
 																		   </select>
 
 		  </div>
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-<label for="infos" style="margin-bottom: 10px; margin-top: 5px">
-							       Details:</label>
+<label for="infos" style="margin-bottom: 10px; margin-top: 5px"> Details:</label>
 <input type="search" class="form-control" id="infos" style="color: var(--font-color); background-color: var(--color-card);">
-</div>
+
+															   </div>
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-<label for="Country" style="margin-bottom: 10px; margin-top: 5px">
-								 Country :</label>
+<label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
 <select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
 <option value="">All Countries</option>
-      <option value="Belgium">Belgium</option>
-		       <option value="France">France</option>
-	   <option value="United States">United States</option><
-					option value="WorldWide">WorldWide</option>   
 															  
  															  
    </select>
@@ -539,7 +533,7 @@ function hideTooltip(btn) {
 <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
 <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
 <option value="">All</option>
-<option value="Seller288">Seller288</option> </select>
+		</select>
 </div>
 </div>
 <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
