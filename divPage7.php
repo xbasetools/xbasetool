@@ -76,12 +76,9 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 <option value="">All Sellers</option>
  </select>
 </div>
-
- 
-
-
-<div class="table-responsive-md">
-  <table class="table">
+<div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
+        <div class="col-sm-12 table-responsive">
+            <table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
 <thead>
     <tr>
       <th scope="col" >Country</th>
