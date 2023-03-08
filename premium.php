@@ -575,7 +575,6 @@ a.closearb {
                 function load_data(myarray) {
                     $('#account_data').DataTable({
                         "processing": true,
-                        "serverSide": true,
                         "responsive": true,
                         "scrollX": true,
                         "order": [],
