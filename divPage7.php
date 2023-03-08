@@ -80,8 +80,9 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
  
 
 
-<table class="table align-middle mb-0 bg-white">
-<thead class="bg-light">
+<div class="table-responsive">
+  <table class="table">
+<thead>
     <tr>
       <th scope="col" >Country</th>
       <th scope="col">Site Name</th>
@@ -93,7 +94,6 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
     </tr>
 </thead>
   <tbody>
-
  <?php
 include("cr.php");
 $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
@@ -122,6 +122,8 @@ $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()
  }
 
  ?>
+</table>
+</div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
