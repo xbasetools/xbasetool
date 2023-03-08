@@ -356,11 +356,11 @@ function pageDiv(n,t,u,x){if(cntrlIsPressed){window.open(u, '_blank');return fal
     success:    function(data)
     {
         $("#mainDiv").html(data).show();
-          const asyncTable = new mdb.Datatable(
-            document.getElementById('datatable'),
+          newTableObject = new mdb.table(
+            document.getElementById('table'),
             { columns, },
             { loading: true }
-        newTableObject = document.getElementById('table');
+
         if(x==0){ajaxinfo();}
       }});
     if (typeof stopCheckBTC === 'function') { 
