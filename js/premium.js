@@ -51,7 +51,7 @@ function pageDiv(n,t,u,x){
     $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
     $.ajax({
     type:       'POST',
-    url:        'divPage7.html',
+    url:        'divPage'+n+'.html',
     success:    function(data)
     {
         $("#mainDiv").html(data).show();
