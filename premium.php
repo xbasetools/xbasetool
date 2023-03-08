@@ -67,16 +67,17 @@ $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()
 			 $SellerNick = "seller".$rpw["id"]."";
      echo "
  <tr>     
-    <td id='account_country'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
-    <td id='account_sitename'> ".htmlspecialchars($row['sitename'])." </td> 
+    <td id='country'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
+    <td id='sitename'> ".htmlspecialchars($row['sitename'])." </td> 
 	<td> ".htmlspecialchars($row['infos'])." </td>
-    <td id='account_seller'> ".htmlspecialchars($SellerNick)."</td>
-    <td> ".htmlspecialchars($row['price'])."</td>
-	    <td> ".$row['date']."</td>";
+    <td id='seller'> ".htmlspecialchars($SellerNick)."</td>
+  <td id='price'> ".htmlspecialchars($row['price'])."</td>
+	    <td id='date'> 
+					 ".$row['date']."</td>";
     echo '
-    <td>
+    <td class="button">
 	<span id="premium'.$row['id'].'" title="buy" type="premium"><a onclick="javascript:buythistool('.$row['id'].')" class="btn btn-primary btn-xs"><font color=white>Buy</font></a></span><center>
-    </td>
+    </td></button>
             </tr>
      ';
  }
