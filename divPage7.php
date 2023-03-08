@@ -11,9 +11,27 @@ if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
 $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 ?>
 
+
+
+
 <ul class="nav nav-tabs">
-
-
+<div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
+          <div class="col-sm-12 table-responsive">
+            <table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
+              <thead>
+                <tr>
+                  <th scope="1"></th>
+                  <th class="all">ID</th>
+                  <th scope="3">Country</th>
+                  <th scope="4">Website Name</th>
+                  <th scope="6">Details</th>
+                  <th scope="7">Price</th>
+                  <th scope="8">Seller</th>
+                  <th scope="10">Date Created</th>
+                  <th class="all">Buy</th>
+                </tr>
+              </thead>
+            </table>
  <?php
 include("cr.php");
 $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
