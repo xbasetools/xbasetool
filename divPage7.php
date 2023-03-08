@@ -77,19 +77,22 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
  </select>
 </div>
 
-<div class="table-responsive-md" table" id="table">
+<div class="table-responsive-md">
+<table class="table table-responsive-md" id="table">
     <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">country</th>
-        <th scope="col">Website</th>
-        <th scope="col">Details</th>
-        <th scope="col">Seller ID</th>
-        <th scope="col">Price </th>
-        <th scope="col">Created Date</th>
-        <th scope="col">Buy Now</th>
-      </tr>
+        <tr>
+            <th scope="col">id </th>
+            <th scope="col">Country</th>
+            <th scope="col">Website</th>
+            <th scope="col">Details</th>
+            <th scope="col">Seller</th>
+            <th scope="col">Price</th>
+            <th scope="col">Added Date </th>
+            <th scope="col">Buy</th>
+        </tr>
     </thead>
+    <tbody>
+ 
     </tbody>
   </table>
 </div>
