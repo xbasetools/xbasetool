@@ -276,7 +276,7 @@ input:checked + .slider:before {
 }
 
 body {
-    padding-top:0px;
+    padding-top:50px;
 }
 table.floatThead-table {
     border-top: none;
@@ -302,10 +302,6 @@ table.floatThead-table {
   margin: auto; /* presto! */
 
 }
-
-   
-    
-
 </style>
 <script type="text/javascript">
              function ajaxinfo() {
@@ -345,11 +341,7 @@ $(document).keyup(function(){
 var cntrlIsPressed = false;
 
 
-function pageDiv(n,t,u,x){
-  if(cntrlIsPressed){
-    window.open(u, '_blank');
-    return false;
-  }
+function pageDiv(n,t,u,x){if(cntrlIsPressed){window.open(u, '_blank');return false;}
         var obj = { Title: t, Url: u };
         if ( ("/"+obj.Url) != location.pathname) {
         	if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
