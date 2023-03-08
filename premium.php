@@ -501,15 +501,15 @@ a.closearb {
           <table id="account_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
             <thead>
               <tr>
-                <th data-priority="1"></th>
-                <th class="all">ID</th>
-                <th data-priority="3">Country</th>
-                <th data-priority="4">Website Name</th>
-                <th data-priority="7">Available Details</th>
-                <th data-priority="8">Seller</th>
-                <th data-priority="9">Price</th>
-                <th data-priority="10">Date Created</th>
-                <th class="all">Buy</th>
+              
+                <th>ID</th>
+                <th>Country</th>
+                <th>Website Name</th>
+                <th>Available Details</th>
+                <th>Seller</th>
+                <th>Price</th>
+                <th>Date Created</th>
+                <th>Buy</th>
               </tr>
             </thead>
           </table>
@@ -526,13 +526,13 @@ $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()
 			 $SellerNick = "seller".$rpw["id"]."";
      echo "
  <tr>     
-    <td id='all'>".htmlspecialchars($row['id'])."</td>
-    <td id='country'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
+    <td id='id'>".htmlspecialchars($row['id'])."</td>
+    <td id='flag'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
     <td id='sitename'> ".htmlspecialchars($row['sitename'])." </td> 
-	<td id='website'> ".htmlspecialchars($row['infos'])." </td>
+	<td id='infos'> ".htmlspecialchars($row['infos'])." </td>
     <td id='1seller'> ".htmlspecialchars($SellerNick)."</td>
-    <td id='all'>".htmlspecialchars($row['price'])."</td>
-    <td id='all'> ".$row['date']."</td>";
+    <td id='price'>".htmlspecialchars($row['price'])."</td>
+    <td id='created_date'> ".$row['date']."</td>";
     echo '
     <td>
 	<span id="premium'.$row['id'].'" title="buy" type="premium"><a onclick="javascript:buythistool('.$row['id'].')" class="btn btn-primary btn-xs"><font color=white>Buy</font></a></span><center>
