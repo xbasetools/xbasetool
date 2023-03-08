@@ -578,19 +578,10 @@ a.closearb {
  </select>
 </div>
 
-<div table width=“100%”  id="mainDiv" class=“myTable table-striped table-bordered table-condensed sticky-header” id=“account_data”>
-<thead>
-    <tr>
-      <th scope=“col” >Country</th>
-      <th scope=“col”>Website Name</th>
-      <th scope=“col”>Details</th>
-      <th scope=“col”>Seller</th>
-      <th scope=“col”>Price</th>
-      <th scope=“col”>Added on </th>
-      <th scope=“col”>Buy</th>
-    </tr>
-</thead>
-  <tbody>
+<div id="mainDiv">
+
+
+
 </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
