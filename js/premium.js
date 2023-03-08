@@ -1,4 +1,4 @@
-e="text/javascript">
+
              function ajaxinfo() {
                 $.ajax({
                     type: 'GET',
