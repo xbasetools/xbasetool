@@ -578,7 +578,7 @@ a.closearb {
  </select>
 </div>
 
-<table width=“100%”  class=“myTable table-striped table-bordered table-condensed sticky-header” id=“account_data”>
+<div table width=“100%”  id="mainDiv" class=“myTable table-striped table-bordered table-condensed sticky-header” id=“account_data”>
 <thead>
     <tr>
       <th scope=“col” >Country</th>
