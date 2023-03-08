@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-   
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="alfacoins-site-verification" content=" ">
+<meta name="revisit-after" content="2 days">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="/cdn-cgi/apps/head ">
+ </script>
+  <link rel="shortcut icon" href="../../favicon.ico" />
+<title>Accounts</title>
+  <link rel="stylesheet" href="layout/css/bootstrap.min.css">
    
    
    
@@ -95,6 +101,9 @@
           </div>
         </div>
         <script>
+      $(document).ready( function () {
+    $('#table').DataTable();} );
+          
         function buythistool(id){
         $('#modalConfirmBuy').modal('show');
         webID= id;
