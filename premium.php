@@ -479,19 +479,9 @@ a.closearb {
 <thead>
 <tr>
 <th data-priority="1"></th>
-<th class="all">ID</th>
-<th data-priority="3">Website Name</th>
-<th data-priority="4">Country</th>
-<th data-priority="7">Details</th>
-<th data-priority="8">Price</th>
-<th data-priority="9">Seller</th>
-<th data-priority="10">Source</th>
-<th class="all">Proof</th>
-<th data-priority="11">Date Created</th>
-<th class="all">Buy</th>
-</tr>
-</thead>
-</table>
+ 
+ 
+ 
 </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
