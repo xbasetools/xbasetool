@@ -75,7 +75,7 @@ table.floatThead-table {
     
 
 
-<script src-"js/premium.js"></script>
+<script type="text/javascript" src="js/premium.js"></script>
 		<style>
             .navbar {
                 background-color: #001f3f;
