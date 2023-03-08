@@ -46,7 +46,7 @@ $query = mysqli_query($dbcon, “SELECT DISTINCT(`resseller`) FROM `accounts` WH
 </div>
 
 
-<table width=“100%”  class=“table table-striped table-bordered table-condensed sticky-header” id=“account_data”>
+<table width=“100%”  class=“mytable table-striped table-bordered table-condensed sticky-header” id=“account_data”>
 <thead>
     <tr>
       <th scope=“col” >Country</th>
