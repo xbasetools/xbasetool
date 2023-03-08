@@ -24,8 +24,15 @@ $query = mysqli_query($dbcon, “SELECT DISTINCT(`country`) FROM `accounts` WHER
 	while($row = mysqli_fetch_assoc($query)){
 	echo ‘<option value=“’.$row[‘country’].’”>’.$row[‘country’].’</option>’;
 	}
-?>
-</select></td><td><input class=‘filterinput form-control input-sm’ name=“account_sitename” size=‘3’></td><td><select class=‘filterselect form-control input-sm’ name=“account_seller”><option value=“”>ALL</option>
+?>   
+   <!----Seller  Cat input Value----->
+
+        <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+  
+   <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
+  
+  <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+      <option value="">All</option>
 <?php
 $query = mysqli_query($dbcon, “SELECT DISTINCT(`resseller`) FROM `accounts` WHERE `sold` = ‘0’ ORDER BY resseller ASC”);
 	while($row = mysqli_fetch_assoc($query)){
@@ -35,7 +42,12 @@ $query = mysqli_query($dbcon, “SELECT DISTINCT(`resseller`) FROM `accounts` WH
 	echo ‘<option value=“’.$SellerNick.’”>’.$SellerNick.’</option>’;
 	}
 ?>
-</select></td><td><button id=‘filterbutton’class=“btn btn-primary btn-sm” disabled>Filter <span class=“glyphicon glyphicon-filter”></span></button></td></tr></tbody></table></div>
+</select></td><td>
+  <button id=‘filterbutton’class=“btn btn-primary btn-sm” disabled>Search <span class=“glyphicon glyphicon-search”>
+  
+</span></button>
+  
+</td></tr></tbody></table></div>
 </div>
 
 
