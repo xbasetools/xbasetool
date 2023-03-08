@@ -269,129 +269,191 @@ input:checked + .slider:before {
 </style>
 </head>
 <style>
-#table {
-
-.label-as-badge {
-    border-radius: 0.5em;
-}
-
-body {
-    padding-top:50px;
-}
-table.d {
-    border-top: none;
-    border-bottom: none;
-    background-color: #fff;
-}
-@media (min-width: 768px) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-}
-
-#mydiv {
-  height: 400px;
-  position: relative;
-}
-.ajax-loader {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto; /* presto! */
-
-}
+#table {</head>
+<style>
+    #table {
+        .sortable
+    }
+ 
+    table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+        content: " \25BE"
+    }
+ 
+    .label-as-badge {
+        border-radius: 0.5em;
+    }
+ 
+    body {
+        padding-top: 50px;
+    }
+ 
+    table.floatThead-table {
+        border-top: none;
+        border-bottom: none;
+        background-color: #fff;
+    }
+ 
+    @media (min-width: 768px) {
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    }
+ 
+    #mydiv {
+        height: 400px;
+        position: relative;
+    }
+ 
+    .ajax-loader {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        /* presto! */
+ 
+    }
 </style>
 <script type="text/javascript">
-        
-$(document).ready(function(){
-   $('#content').load("divPage7.html");
-
-});
-	</script>
-
-<script>
-$(function () {
-
-	'use strict';
-
-	$('.navbar-nav li.dropdown').hover(function() {
-	  $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
-	}, function() {
-	  $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
-	});
-
-
-	/* Add Balance */
-
-
-
-});
-
-var cntrlIsPressed = false;
-
-function pageDiv(n,t,u,x){
-	  if(cntrlIsPressed){
-	    window.open(u, '_blank');
-	    return false;
-	  }
-	        var obj = { Title: t, Url: u };
-	        if ( ("/"+obj.Url) != location.pathname) {
-	        	if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
-	        	else{history.replaceState(obj, obj.Title, obj.Url);}
-
-	    	}
-	      document.title = obj.Title;
-	    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
-	    $.ajax({
-	    type:       'GET',
-	    url:        'divPage'+n+'.html',
-	    success:    function(data)
-	    {
-	        $("#mainDiv").html(data).show();
-	      }});
-	    if (typeof stopCheckBTC === 'function') {
-	    var a = stopCheckBTC();
-	     }
-
-	}
-
-
-function openitem(order){
-    $("#myModalLabel").text('Order #'+order);
-    $('#myModal').modal('show');
-    $.ajax({
-    	type:       'GET',
-    	url:        'showOrder'+order,
-    	success:    function(data) {
-    		$("#modelbody").html(data).show();
-    	}
+    function ajaxinfo() {
+        $.ajax({
+            type: 'GET',
+            url: 'ajaxinfo.html',
+            timeout: 10000,
+ 
+            success: function(data) {
+                if (data != '01') {
+                    var data = JSON.parse(data);
+                    for (var prop in data) {
+                        $("#" + prop).html(data[prop]).show();
+                    }
+                } else {
+                    window.location = "logout.html";
+                }
+            }
+        });
+ 
+    }
+    setInterval(function() {
+        ajaxinfo()
+    }, 3000);
+ 
+    ajaxinfo();
+ 
+    $(document).keydown(function(event) {
+        if (event.which == "17")
+            cntrlIsPressed = true;
     });
-
-}
-
-function sendt(id){
-
-            var sub = $("#subject"+id).val();
-            var msg = $("#msg"+id).val();
-            var pr = $("#proi"+id).val();
-            $.ajax({
-                method:"GET",
-                url:"CreateReport?id="+id+"&m="+btoa(msg),
-                dataType:"text",
-                success:function(data){
-                    $("#resulta"+id).html(data).show();
-                },
-            });
+ 
+    $(document).keyup(function() {
+        cntrlIsPressed = false;
+    });
+ 
+    var cntrlIsPressed = false;
+ 
+ 
+    function pageDiv(n, t, u, x) {
+        if (cntrlIsPressed) {
+            window.open(u, '_blank');
+            return false;
         }
-
-function sendReview(id){var rating=$("#rating-"+id+" input[type='radio']:checked").val();var review=$("#review-"+id).val();if(rating==undefined)
-{rating='';}
-$.ajax({type:"POST",url:"addReviewToSeller",dataType:"json",data:{orderid:id,rating:rating,review:review},success:function(response){if(response.success!=1){$("#ratingModal"+id+" .modal-body p").show();$("#ratingModal"+id+" .modal-body p span").html(response.message);}else{$("div#rating-and-review-"+id).html(response.message);$("#ratingModal"+id).hide();$(".modal-backdrop").remove();alert('Your rating has saved.');}}});}
-
+        var obj = {
+            Title: t,
+            Url: u
+        };
+        if (("/" + obj.Url) != location.pathname) {
+            if (x != 1) {
+                history.pushState(obj, obj.Title, obj.Url);
+            } else {
+                history.replaceState(obj, obj.Title, obj.Url);
+            }
+ 
+        }
+        document.title = obj.Title;
+        $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
+        $.ajax({
+            type: 'GET',
+            url: 'divPage' + n + '.html',
+            success: function(data) {
+                $("#mainDiv").html(data).show();
+                newTableObject = document.getElementById('table');
+                sorttable.makeSortable(newTableObject);
+                $(".sticky-header").floatThead({
+                    top: 60
+                });
+                if (x == 0) {
+                    ajaxinfo();
+                }
+            }
+        });
+        if (typeof stopCheckBTC === 'function') {
+            var a = stopCheckBTC();
+        }
+ 
+    }
+ 
+    $(window).on("popstate", function(e) {
+        location.replace(document.location);
+ 
+    });
+ 
+ 
+    $(window).on('load', function() {
+        $('.dropdown').hover(function() {
+            $('.dropdown-toggle', this).trigger('click');
+        });
+        pageDiv(7, 'Premium/Dating/Shopping - JeruxShop', 'premium.html', 1);
+        var clipboard = new Clipboard('.copyit');
+        clipboard.on('success', function(e) {
+            setTooltip(e.trigger, 'Copied!');
+            hideTooltip(e.trigger);
+            e.clearSelection();
+        });
+ 
+    });
+ 
+ 
+    function setTooltip(btn, message) {
+        console.log("hide-1");
+        $(btn).tooltip('hide')
+            .attr('data-original-title', message)
+            .tooltip('show');
+        console.log("show");
+    }
+ 
+    function hideTooltip(btn) {
+        setTimeout(function() {
+            $(btn).tooltip('hide');
+            console.log("hide-2");
+        }, 1000);
+    }
 </script>
-
+<style>
+        .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
+	    padding-top: 35px;
+}
+.modal-dialog.modal-frame.modal-top.modal-notify.modal-danger,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger {
+    max-width: 500px !important;
+    margin: 1.75rem auto !important;
+    position: relative;
+    width: auto !important;
+    pointer-events: none;
+}
+a.closearb {
+    position: absolute;
+    top: 2.5px;
+    right: 2.5px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-indent: -9999px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAA3hJREFUaAXlm8+K00Acx7MiCIJH/yw+gA9g25O49SL4AO3Bp1jw5NvktC+wF88qevK4BU97EmzxUBCEolK/n5gp3W6TTJPfpNPNF37MNsl85/vN/DaTmU6PknC4K+pniqeKJ3k8UnkvDxXJzzy+q/yaxxeVHxW/FNHjgRSeKt4rFoplzaAuHHDBGR2eS9G54reirsmienDCTRt7xwsp+KAoEmt9nLaGitZxrBbPFNaGfPloGw2t4JVamSt8xYW6Dg1oCYo3Yv+rCGViV160oMkcd8SYKnYV1Nb1aEOjCe6L5ZOiLfF120EjWhuBu3YIZt1NQmujnk5F4MgOpURzLfAwOBSTmzp3fpDxuI/pabxpqOoz2r2HLAb0GMbZKlNV5/Hg9XJypguryA7lPF5KMdTZQzHjqxNPhWhzIuAruOl1eNqKEx1tSh5rfbxdw7mOxCq4qS68ZTjKS1YVvilu559vWvFHhh4rZrdyZ69Vmpgdj8fJbDZLJpNJ0uv1cnr/gjrUhQMuI+ANjyuwftQ0bbL6Erp0mM/ny8Fg4M3LtdRxgMtKl3jwmIHVxYXChFy94/Rmpa/pTbNUhstKV+4Rr8lLQ9KlUvJKLyG8yvQ2s9SBy1Jb7jV5a0yapfF6apaZLjLLcWtd4sNrmJUMHyM+1xibTjH82Zh01TNlhsrOhdKTe00uAzZQmN6+KW+sDa/JD2PSVQ873m29yf+1Q9VDzfEYlHi1G5LKBBWZbtEsHbFwb1oYDwr1ZiF/2bnCSg1OBE/pfr9/bWx26UxJL3ONPISOLKUvQza0LZUxSKyjpdTGa/vDEr25rddbMM0Q3O6Lx3rqFvU+x6UrRKQY7tyrZecmD9FODy8uLizTmilwNj0kraNcAJhOp5aGVwsAGD5VmJBrWWbJSgWT9zrzWepQF47RaGSiKfeGx6Szi3gzmX/HHbihwBser4B9UJYpFBNX4R6vTn3VQnez0SymnrHQMsRYGTr1dSk34ljRqS/EMd2pLQ8YBp3a1PLfcqCpo8gtHkZFHKkTX6fs3MY0blKnth66rKCnU0VRGu37ONrQaA4eZDFtWAu2fXj9zjFkxTBOo8F7t926gTp/83Kyzzcy2kZD6xiqxTYnHLRFm3vHiRSwNSjkz3hoIzo8lCKWUlg/YtGs7tObunDAZfpDLbfEI15zsEIY3U/x/gHHc/G1zltnAgAAAABJRU5ErkJggg==);
+}
+</style>
 <nav class="navbar navbar-expand-xl navbar  navbar-light " style="
                                                           position:fixed;
                                                           background-color: var(--color-nav);
@@ -542,34 +604,12 @@ Send
 <a class="dropdown-item" href="seller-profile" style="color: var(--font-color);"><span class="px-2">Profile <i class="fa fa-user"></i></span></a>
 <a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
 <a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
-<a class="dropdown-item" href="logout" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
-
-		<style>
-        .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
-	    padding-top: 35px;
-}
-.modal-dialog.modal-frame.modal-top.modal-notify.modal-danger,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger {
-    max-width: 500px !important;
-    margin: 1.75rem auto !important;
-    position: relative;
-    width: auto !important;
-    pointer-events: none;
-}
-a.closearb {
-    position: absolute;
-    top: 2.5px;
-    right: 2.5px;
-    display: block;
-    width: 30px;
-    height: 30px;
-    text-indent: -9999px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAA3hJREFUaAXlm8+K00Acx7MiCIJH/yw+gA9g25O49SL4AO3Bp1jw5NvktC+wF88qevK4BU97EmzxUBCEolK/n5gp3W6TTJPfpNPNF37MNsl85/vN/DaTmU6PknC4K+pniqeKJ3k8UnkvDxXJzzy+q/yaxxeVHxW/FNHjgRSeKt4rFoplzaAuHHDBGR2eS9G54reirsmienDCTRt7xwsp+KAoEmt9nLaGitZxrBbPFNaGfPloGw2t4JVamSt8xYW6Dg1oCYo3Yv+rCGViV160oMkcd8SYKnYV1Nb1aEOjCe6L5ZOiLfF120EjWhuBu3YIZt1NQmujnk5F4MgOpURzLfAwOBSTmzp3fpDxuI/pabxpqOoz2r2HLAb0GMbZKlNV5/Hg9XJypguryA7lPF5KMdTZQzHjqxNPhWhzIuAruOl1eNqKEx1tSh5rfbxdw7mOxCq4qS68ZTjKS1YVvilu559vWvFHhh4rZrdyZ69Vmpgdj8fJbDZLJpNJ0uv1cnr/gjrUhQMuI+ANjyuwftQ0bbL6Erp0mM/ny8Fg4M3LtdRxgMtKl3jwmIHVxYXChFy94/Rmpa/pTbNUhstKV+4Rr8lLQ9KlUvJKLyG8yvQ2s9SBy1Jb7jV5a0yapfF6apaZLjLLcWtd4sNrmJUMHyM+1xibTjH82Zh01TNlhsrOhdKTe00uAzZQmN6+KW+sDa/JD2PSVQ873m29yf+1Q9VDzfEYlHi1G5LKBBWZbtEsHbFwb1oYDwr1ZiF/2bnCSg1OBE/pfr9/bWx26UxJL3ONPISOLKUvQza0LZUxSKyjpdTGa/vDEr25rddbMM0Q3O6Lx3rqFvU+x6UrRKQY7tyrZecmD9FODy8uLizTmilwNj0kraNcAJhOp5aGVwsAGD5VmJBrWWbJSgWT9zrzWepQF47RaGSiKfeGx6Szi3gzmX/HHbihwBser4B9UJYpFBNX4R6vTn3VQnez0SymnrHQMsRYGTr1dSk34ljRqS/EMd2pLQ8YBp3a1PLfcqCpo8gtHkZFHKkTX6fs3MY0blKnth66rKCnU0VRGu37ONrQaA4eZDFtWAu2fXj9zjFkxTBOo8F7t926gTp/83Kyzzcy2kZD6xiqxTYnHLRFm3vHiRSwNSjkz3hoIzo8lCKWUlg/YtGs7tObunDAZfpDLbfEI15zsEIY3U/x/gHHc/G1zltnAgAAAABJRU5ErkJggg==);
-}
-</style> 
-<body style="font-size: 15px; padding-top: 0.5rem; padding-bottom: 0.5rem;                                                        ">
+<a class="dropdown-item" href="logout" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open">
+</i>
+</span>
+</a>
+<body style="padding-top: 70px; padding-bottom: 70px;">
+        <div class="container-fluid">
    </ul>
         </li>
       </ul>
