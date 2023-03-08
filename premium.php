@@ -75,7 +75,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   background-color: var(--color-backinfo);
   border-color: var(--color-borderinfo);
   }
-  #atable_filter{
+  #table_filter{
   color: var(--font-color);
   }
   #table_length{
