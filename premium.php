@@ -373,9 +373,19 @@
               <a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
               <a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
               <a class="dropdown-item" href="login" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-        <div id="mainDiv">                                                                                                                                  
+                     </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<div id="mainDiv">
+
+
+</div>
+               <script src="js/premium.js"></script>
+<script>  
+</body>
+</html>
