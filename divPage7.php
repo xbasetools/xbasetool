@@ -79,19 +79,21 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 
 <div class="table-responsive-md">
   <table class="table" id="table">
-<thead>
-    <tr>
-     <th scope="col">#</th>
-      <th scope="col">Country</th>
-      <th scope="col">Website Name</th>
-      <th scope="col"> Details</th>
-      <th scope="col">Seller ID</th>
-      <th scope="col">Price</th>
-      <th scope="col">Created Date</th>
-      <th scope="col">Buy</th>
-    </tr>
-</thead>
-  <tbody>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">country</th>
+        <th scope="col">Website</th>
+        <th scope="col">Details</th>
+        <th scope="col">Seller ID</th>
+        <th scope="col">Price.     </th>
+        <th scope="col">Created Date</th>
+        <th scope="col">Buy Now</th>
+      </tr>
+    </thead>
+    </tbody>
+  </table>
+</div>
  <?php
 include("cr.php");
 $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
@@ -105,7 +107,7 @@ $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()
 			 $SellerNick = "seller".$rpw["id"]."";
      echo "
  <tr
-    <td id='id'> ".$row['id']."</td>
+    <td id='id'> ".htmlspeciapchars($row['id'])."</td>
     <td id='country'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
     <td id='website'> ".htmlspecialchars($row['sitename'])." </td> 
 	<td id='details> ".htmlspecialchars($row['infos'])." </td>
