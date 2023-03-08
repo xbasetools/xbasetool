@@ -267,23 +267,16 @@ input:checked + .slider:before {
 <style>
 
 </style>
-
-<title>JeruxShop</title>
 </head>
 <style>
 #table {
-  .sortable
-}
-table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
-    content: " \25BE" 
-}
 
 .label-as-badge {
     border-radius: 0.5em;
 }
 
 body {
-    padding-top:50px;
+    padding-top:0px;
 }
 table.floatThead-table {
     border-top: none;
