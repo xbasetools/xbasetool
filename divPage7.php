@@ -11,15 +11,7 @@ if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
 }
 $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 ?>
-
-
-
-
- <input type="text" id="search" class="form-control" placeholder="Search Anything here">
-  
-  
-   <input type="text" id="search" class="form-control" placeholder="Search Anything here">
-
+ 
       <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
         <div class="col-sm-12 table-responsive">
           <table id="myTable" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
