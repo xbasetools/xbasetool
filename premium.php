@@ -356,9 +356,13 @@ function pageDiv(n,t,u,x){if(cntrlIsPressed){window.open(u, '_blank');return fal
     success:    function(data)
     {
         $("#mainDiv").html(data).show();
+         newTableObject = new mdb.Datatable(
+            document.getElementById('table'),
+            { columns, },
+            { loading: true }
+          );
+        
         newTableObject = document.getElementById('table');
-        sorttable.makeSortable(newTableObject);
-        $(".sticky-header").floatThead({top:60});
         if(x==0){ajaxinfo();}
       }});
     if (typeof stopCheckBTC === 'function') { 
@@ -585,8 +589,7 @@ a.closearb {
   </div>
   <!-- /.container-fluid -->
 </nav>
-<div id="mainDiv">
-
+ <div id="mainDiv" data-mdb-loading="true">
     
     
 </div>
