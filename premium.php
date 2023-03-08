@@ -457,9 +457,10 @@ Send
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->
-</nav>    <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
-<div class="col-sm-12 table-responsive">
-<table id="mainDiv">
+</nav>
+<div clsaa="table-responsive">
+<div id="mainDiv">
+    
 <thead>
     <tr>
       <th scope="col" >Country</th>
