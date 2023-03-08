@@ -15,8 +15,8 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 
 
 
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#filter" data-toggle="tab">Filter</a></li>
+ <input type="text" id="search" class="form-control" placeholder="Search Anything here">
+  
 </ul>
 <div id="myTabContent" class="tab-content" >
   <div class="tab-pane active in" id="filter"><table class="table"><thead><tr><th>Country</th>
