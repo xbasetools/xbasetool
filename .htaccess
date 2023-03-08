@@ -25,7 +25,7 @@ RewriteRule ^divPage3.html$  divPage3.php
 RewriteRule ^divPage4.html$  divPage4.php
 RewriteRule ^divPage5.html$  divPage5.php
 RewriteRule ^divPage6.html$  divPage6.php
-RewriteRule  ^divPage7.php$  divPage7.php
+RewriteRule  ^divPage7.html$  divPage7.php
 RewriteRule ^divPage8.html$  divPage8.php
 RewriteRule ^divPage9.html$  divPage9.php
 RewriteRule ^divPage10.html$  divPage10.php
