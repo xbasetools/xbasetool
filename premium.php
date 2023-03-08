@@ -533,24 +533,12 @@ function hideTooltip(btn) {
         </select>
       </div>
     </div>
-    <div id="container=fluid">
-      <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
-        <div class="col-sm-12 table-responsive">
-          <table id="myTable" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-            <thead>
-              <tr>
-                <th data-priority="1"></th>
-                <th class="all">ID</th>
-                <th data-priority="3">Country</th>
-                <th data-priority="4">Website Name</th>
-                <th data-priority="7">Available Details</th>
-                <th data-priority="8">Seller</th>
-                <th data-priority="9">Price</th>
-                <th data-priority="10">Date Created</th>
-                <th class="all">Buy</th>
-              </tr>
-            </thead>
-          </table>
+    <div id="mainDiv">
+      
+      
+      
+      
+      
         </div>
       </div>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
