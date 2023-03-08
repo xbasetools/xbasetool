@@ -77,20 +77,7 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
  </select>
 </div>
 
-        <div class="col-sm-12 table-responsive">
-            <table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-<thead>
-    <tr>
-      <th scope="col" >Country</th>
-      <th scope="col">Site Name</th>
-      <th scope="col">Available Information</th>
-      <th scope="col">Seller</th>
-      <th scope="col">Price</th>
-      <th scope="col">Added on </th>
-      <th scope="col">Buy</th>
-    </tr>
-</thead>
-  <tbody>
+
  <?php
 include("cr.php");
 $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
