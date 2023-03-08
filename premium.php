@@ -576,19 +576,14 @@ a.closearb {
 <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
 <option value="">All Sellers</option>
  </select>
-
-
 </div>
 
-</div>
-
-<tr>
-<table width=“100%”  class=“table table-striped table-bordered table-condensed sticky-header” id=“account_data”>
+<table width=“100%”  class=“myTable table-striped table-bordered table-condensed sticky-header” id=“account_data”>
 <thead>
     <tr>
       <th scope=“col” >Country</th>
-      <th scope=“col”>Site Name</th>
       <th scope=“col”>Website Name</th>
+      <th scope=“col”>Details</th>
       <th scope=“col”>Seller</th>
       <th scope=“col”>Price</th>
       <th scope=“col”>Added on </th>
@@ -661,7 +656,7 @@ a.closearb {
 
 <script>
 $(function(){
-    $("#account_data").dataTable();
+    $("#myTable").dataTable();
   })
 <script>(function(){var js = "window['__CF$cv$params']={r:'7a4a0e5ded56b82e',m:'uZKOE6wmw5dUNtnaq0pWx7s_b0mVBxG2ufSUOjnyIhM-1678267791-0-AdBo7J0DtIFDIV/rZvLtfl7Sf1U/8w/o7x4d6itCU7LKLeXo/FaBDPywj9lrZbdaBHan/fPQWjM8UFLdckhMUBcZczQg3TMMseTYi0xb/Go4ZMrGbscCJjab/V1oNwJ/sA==',s:[0xf3aae695ce,0xc48fdeb19e],u:'/cdn-cgi/challenge-platform/h/b'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/b/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
 </html>
