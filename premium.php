@@ -388,15 +388,55 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
             <li>There is <b> 109 </b> Accounts Available.</li>
         </ul>
     </div>
-                        
-                        
-                        
-                        
-                        
+    
+    <!----Website Cat input Value----->
+    
+        <input type=hidden id="cat" name="cat" value="1" />
+    <div class="row m-3 pt-1" style="color: var(--font-color);">
+        <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+            <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Website Name :</label>
+            <select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+                <option value="">All Website</option>
+                <option value="http://gmx.com/">http://gmx.com/</option>
+             </select>
+     
+             </div>
+                
+                
+                      
+         <!----Country Cat input Value----->
+                             <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+            <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Details:</label>
+            <input type="search" class="form-control" id="infos" style="color: var(--font-color); background-color: var(--color-card);">
+        </div>
+        <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+            <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
+            
+     <select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+    
+  <option value="">All Countries</option>
+                   </select>
+        </div>
+        
+        
+        
+    <!----Seller  Cat input Value----->
 
-
+        <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+  
+   <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
+  
+  <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+      <option value="">All</option>
+ <option value="Seller349">Seller349</option>
               
                        
+                      
+                      
+                      
+                      
+                      
+                      
               </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
