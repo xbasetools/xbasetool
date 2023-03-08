@@ -305,8 +305,10 @@ table.floatThead-table {
 </style>
 <script type="text/javascript">
         
-		$(document).ready(function(){
-			$("#mainDiv").load("divPage7.php");
+$(document).ready(function(){
+   $('#content').load("divPage7.html");
+
+});
 	</script>
 
 
