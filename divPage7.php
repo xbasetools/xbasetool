@@ -80,7 +80,7 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
  
 
 
-<table class="table-responsive">
+<div class="table-responsive">
   <table class="table">
 <thead>
     <tr>
