@@ -463,7 +463,7 @@ Send
     
 </div>
 
-<acript>
+<script>
     function ajaxinfo() {
         $.ajax({
             type: 'GET',
