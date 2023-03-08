@@ -280,29 +280,20 @@ input:checked + .slider:before {
     }
  
     .label-as-badge {
-        border-radius: 0.5em;
-    }
+  color: var(--font-color);
+}
  
     body {
         padding-top: 50px;
     }
  
-    table.floatThead-table {
-        border-top: none;
-        border-bottom: none;
-        background-color: #fff;
-    }
- 
-    @media (min-width: 768px) {
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-    }
+    table.dataTable {
+          color: var(--font-color);
+}
  
     #mydiv {
-        height: 400px;
-        position: relative;
-    }
+  color: var(--font-color);
+}
  
     .ajax-loader {
         position: absolute;
