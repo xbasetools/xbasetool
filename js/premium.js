@@ -48,7 +48,7 @@ function pageDiv(n,t,u,x){
 
     	}
       document.title = obj.Title;
-    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
+    $("#mainDiv").html('<div id="mainDiv"></div>').show();
     $.ajax({
     type:       'POST',
     url:        'divPage'+n+'.html',
