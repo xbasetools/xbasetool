@@ -356,12 +356,10 @@ function pageDiv(n,t,u,x){if(cntrlIsPressed){window.open(u, '_blank');return fal
     success:    function(data)
     {
         $("#mainDiv").html(data).show();
-         newTableObject = new mdb.Datatable(
-            document.getElementById('table'),
+          const asyncTable = new mdb.Datatable(
+            document.getElementById('datatable'),
             { columns, },
             { loading: true }
-          );
-        
         newTableObject = document.getElementById('table');
         if(x==0){ajaxinfo();}
       }});
