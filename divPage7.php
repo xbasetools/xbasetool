@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 date_default_timezone_set(‘UTC’);
-include “../includes/config.php”;
+include “includes/config.php”;
 
 if (!isset($_SESSION[‘sname’]) and !isset($_SESSION[‘spass’])) {
     header(“location: ../“);
@@ -46,7 +46,7 @@ $query = mysqli_query($dbcon, “SELECT DISTINCT(`resseller`) FROM `accounts` WH
 </div>
 
 
-<table width=“100%”  class=“mytable table-striped table-bordered table-condensed sticky-header” id=“account_data”>
+<table width=“100%”  class=“table table-striped table-bordered table-condensed sticky-header” id=“account_data”>
 <thead>
     <tr>
       <th scope=“col” >Country</th>
