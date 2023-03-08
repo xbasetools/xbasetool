@@ -403,7 +403,7 @@ input:checked + .slider:before {
         $('.dropdown').hover(function() {
             $('.dropdown-toggle', this).trigger('click');
         });
-        pageDiv(7, 'Premium/Dating/Shopping - JeruxShop', 'premium.html', 1);
+        pageDiv(7, 'Premium/Dating/Shopping - ', 'accounts', 1);
         var clipboard = new Clipboard('.copyit');
         clipboard.on('success', function(e) {
             setTooltip(e.trigger, 'Copied!');
