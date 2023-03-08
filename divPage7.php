@@ -102,10 +102,9 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
         </select>
       </div>
     </div>
-    <div id="container=fluid">
       <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
         <div class=" table-responsive">
-          <table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
+          <table class="table responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
             <thead>
               <tr> 
                 
@@ -119,6 +118,8 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
               </tr>
             </thead>
           </table>
+        
+        
         </div>
       </div>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
