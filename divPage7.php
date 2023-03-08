@@ -70,7 +70,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
       </div>
       <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
         <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Details:</label>
-        <input type="search" class="form-control" id="infos" style="color: var(--font-color); background-color: var(--color-card);">
+         <input type="text" id="search" class="form-control" placeholder="search" id="account_sitename" style="color: var(--font-color); background-color: var(--color-card);">
       </div>
       <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
         <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
