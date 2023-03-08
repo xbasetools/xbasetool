@@ -380,7 +380,7 @@ input:checked + .slider:before {
                 newTableObject = document.getElementById('table');
                 sorttable.makeSortable(newTableObject);
                 $(".sticky-header").floatThead({
-                    top: 60
+                    top: 60 
                 });
                 if (x == 0) {
                     ajaxinfo();
