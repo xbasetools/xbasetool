@@ -1,4 +1,15 @@
- 
+ <?php
+ob_start();
+session_start();
+date_default_timezone_set('UTC');
+include "includes/config.php";
+
+if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
+    header("location: ../");
+    exit();
+}
+$usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +35,8 @@
     <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/premium.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177092549-1"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -50,14 +60,14 @@
     }
     </style>
   </head>
-  <style>.display  td {
+  <style>.table  td {
   background: var(--color-card);
   color: var(--font-color);
   }
   .dataTables_wrapper .dataTables_paginate .paginate_button {
   color: var(--font-color);
   }
-  #account_data_paginate .paginate_button {
+  #table_paginate .paginate_button {
   color: var(--font-color);
   }
   .alert-info {
@@ -65,20 +75,20 @@
   background-color: var(--color-backinfo);
   border-color: var(--color-borderinfo);
   }
-  #account_data_filter{
+  #atable_filter{
   color: var(--font-color);
   }
-  #account_data_length{
+  #table_length{
   color: var(--font-color);
   }
-  #account_data_paginate{
+  #table_paginate{
   color: var(--font-color);
   }
-  #account_data_info{
+  #table_info{
   color: var(--font-color);
   }
   </style>
-  <body class="them">
+  <body class="premium">
     <style>.navbar-nav .dropdown-menu
     {
     margin:0 !important
@@ -111,20 +121,20 @@
     --color-backinfo: #262A37;
     --color-borderinfo: #262A37;
     }
-    .them {
+    .premium {
     background: var(--color-secondary);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     }
-    .them h1 {
+    .premium h1 {
     color: var(--font-color);
     font-family: sans-serif;
     }
     .card-body {
     color: var(--font-color);
     }
-    .them button {
+    .premium button {
     color: var(--font-color);
     background-color: #ffffff;
     padding: 10px 20px;
