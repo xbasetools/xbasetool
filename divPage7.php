@@ -99,12 +99,14 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
       </div>
     
     </div>
+    
+    
+    
       <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
         <div class=" table-responsive">
           <table class="table responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
             <thead>
               <tr> 
-                
                 <th scope="col">Country</th>
                 <th scope="col">Website Name</th>
                 <th scope="col">Available Details</th>
