@@ -455,19 +455,20 @@ a.closearb {
 </label>
 </div>
 </div>
+
 <div class="alert alert-info text-left" role="alert" style="margin: 15px;">
-<ul>
-<li>For Any problem for account after buy just open report and seller will fix it or replace.</li>
-<li>There is <b> 109 </b> Accounts Available.</li>
-</ul>
+<ul><li>For Any problem for account after buy just open report and seller will fix it or replace.</li><li>There is <b> 109 </b> Accounts Available.</li></ul>
+<!---website Infos--->
 </div>
 <input type=hidden id="cat" name="cat" value="1" />
 <div class="row m-3 pt-1" style="color: var(--font-color);">
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-<label for="infos" style="margin-bottom: 10px; margin-top: 5px">Website Name :</label>
+<label for="infos" style="margin-bottom: 10px; margin-top: 5px">Website Info :</label>
 <select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-<option value="">All</option>
-<option value="http://gmx.com/">http://gmx.com/</option><option value="https://app.constantcontact.co">https://app.constantcontact.co</option><option value="https://deds.nl/webmail/src/lo">https://deds.nl/webmail/src/lo</option><option value="https://login.hostmonster.com/">https://login.hostmonster.com/</option><option value="https://mail.hostinger.com">https://mail.hostinger.com</option><option value="https://mail.ionos.com/">https://mail.ionos.com/</option><option value="https://mail.simnet.is">https://mail.simnet.is</option><option value="https://postur.simnet.is">https://postur.simnet.is</option><option value="https://webmail.mwt.net">https://webmail.mwt.net</option><option value="https://webmail1.hostinger.com">https://webmail1.hostinger.com</option><option value="https://www.zoho.com">https://www.zoho.com</option><option value="https://zimbra.unex.es">https://zimbra.unex.es</option><option value="mail.infinitummail.com">mail.infinitummail.com</option><option value="nordaccount.com">nordaccount.com</option> </select>
+<option value="">All Websites</option>
+ </select>
+
+<!---Countries search--->
 </div>
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
 <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Details:</label>
@@ -477,15 +478,21 @@ a.closearb {
 <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
 <select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
 <option value="">All Countries</option>
-<option value="Mexico">Mexico</option><option value="Netherlands">Netherlands</option><option value="Saudi Arabia">Saudi Arabia</option><option value="United States">United States</option><option value="WorldWide">WorldWide</option> </select>
+</select>
+
+<!---seller--->
 </div>
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
 <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
 <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-<option value="">All</option>
-<option value="Seller349">Seller349</option><option value="Seller413">Seller413</option><option value="Seller382">Seller382</option><option value="Seller366">Seller366</option><option value="Seller306">Seller306</option><option value="Seller393">Seller393</option> </select>
+<option value="">All Sellers</option>
+ </select>
+
+
 </div>
+
 </div>
+
 <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
 <div class="col-sm-12 table-responsive">
 <table id="account_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
