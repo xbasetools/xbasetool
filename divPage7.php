@@ -145,6 +145,12 @@ $q = mysqli_query($dbcon, “SELECT * FROM accounts WHERE sold=‘0’ ORDER BY 
  }
 
  ?>
+<script type="text/javascript">
+ let table = new DataTable(#table',{
+]);
+</script>
+
+</h
         </div>
       </div>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
