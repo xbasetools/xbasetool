@@ -267,8 +267,151 @@ input:checked + .slider:before {
 <style>
 
 </style>
-<script type=“text/javascript”>
-         
+
+<title>JeruxShop</title>
+</head>
+<style>
+#table {
+  .sortable
+}
+table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25BE" 
+}
+
+.label-as-badge {
+    border-radius: 0.5em;
+}
+
+body {
+    padding-top:50px;
+}
+table.floatThead-table {
+    border-top: none;
+    border-bottom: none;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+#mydiv {
+  height: 400px;
+  position: relative;
+}
+.ajax-loader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; /* presto! */
+
+}
+
+   
+    
+
+</style>
+<script type="text/javascript">
+             function ajaxinfo() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'ajaxinfo.html',
+                    timeout: 10000,
+
+                    success: function(data) {
+                        if (data != '01') {
+                            var data = JSON.parse(data);
+                            for (var prop in data) {
+                                $("#" + prop).html(data[prop]).show();
+                            }
+                        } else {
+                            window.location = "logout.html";
+                        }
+                    }
+                });
+
+            }
+            setInterval(function() {
+                ajaxinfo()
+            }, 3000);
+
+            ajaxinfo();
+
+$(document).keydown(function(event){
+    if(event.which=="17")
+        cntrlIsPressed = true;
+});
+
+$(document).keyup(function(){
+    cntrlIsPressed = false;
+});
+
+var cntrlIsPressed = false;
+
+
+function pageDiv(n,t,u,x){
+  if(cntrlIsPressed){
+    window.open(u, '_blank');
+    return false;
+  }
+        var obj = { Title: t, Url: u };
+        if ( ("/"+obj.Url) != location.pathname) {
+        	if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
+        	else{history.replaceState(obj, obj.Title, obj.Url);}
+
+    	}
+      document.title = obj.Title;
+    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
+    $.ajax({
+    type:       'GET',
+    url:        'divPage'+n+'.html',
+    success:    function(data)
+    {
+        $("#mainDiv").html(data).show();
+        newTableObject = document.getElementById('table');
+        sorttable.makeSortable(newTableObject);
+        $(".sticky-header").floatThead({top:60});
+        if(x==0){ajaxinfo();}
+      }});
+    if (typeof stopCheckBTC === 'function') { 
+    var a = stopCheckBTC();
+     }
+
+}
+
+$(window).on("popstate", function(e) {
+        location.replace(document.location);
+
+});
+
+
+$(window).on('load', function() {
+$('.dropdown').hover(function(){ $('.dropdown-toggle', this).trigger('click'); });
+   pageDiv(7,'Premium/Dating/Shopping - JeruxShop','premium.html',1);
+   var clipboard = new Clipboard('.copyit');
+    clipboard.on('success', function(e) {
+      setTooltip(e.trigger, 'Copied!');
+      hideTooltip(e.trigger);
+      e.clearSelection();
+   });
+
+});
+
+
+function setTooltip(btn, message) {
+  console.log("hide-1");
+  $(btn).tooltip('hide')
+    .attr('data-original-title', message)
+    .tooltip('show');
+     console.log("show");
+}
+
+function hideTooltip(btn) {
+  setTimeout(function() {$(btn).tooltip('hide'); console.log("hide-2");}, 1000);
+}
 </script>
 <nav class="navbar navbar-expand-xl navbar  navbar-light " style="
                                                           position:fixed;
@@ -421,16 +564,9 @@ Send
 <a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
 <a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
 <a class="dropdown-item" href="logout" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
-</div>
-</li>
 
-</ul>
-
-</div>
-</nav>
-<div id="mainDiv">
-<style>
-.modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
+		<style>
+        .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
 	    padding-top: 35px;
 }
 .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger {
@@ -453,197 +589,20 @@ a.closearb {
     background-position: center center;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAA3hJREFUaAXlm8+K00Acx7MiCIJH/yw+gA9g25O49SL4AO3Bp1jw5NvktC+wF88qevK4BU97EmzxUBCEolK/n5gp3W6TTJPfpNPNF37MNsl85/vN/DaTmU6PknC4K+pniqeKJ3k8UnkvDxXJzzy+q/yaxxeVHxW/FNHjgRSeKt4rFoplzaAuHHDBGR2eS9G54reirsmienDCTRt7xwsp+KAoEmt9nLaGitZxrBbPFNaGfPloGw2t4JVamSt8xYW6Dg1oCYo3Yv+rCGViV160oMkcd8SYKnYV1Nb1aEOjCe6L5ZOiLfF120EjWhuBu3YIZt1NQmujnk5F4MgOpURzLfAwOBSTmzp3fpDxuI/pabxpqOoz2r2HLAb0GMbZKlNV5/Hg9XJypguryA7lPF5KMdTZQzHjqxNPhWhzIuAruOl1eNqKEx1tSh5rfbxdw7mOxCq4qS68ZTjKS1YVvilu559vWvFHhh4rZrdyZ69Vmpgdj8fJbDZLJpNJ0uv1cnr/gjrUhQMuI+ANjyuwftQ0bbL6Erp0mM/ny8Fg4M3LtdRxgMtKl3jwmIHVxYXChFy94/Rmpa/pTbNUhstKV+4Rr8lLQ9KlUvJKLyG8yvQ2s9SBy1Jb7jV5a0yapfF6apaZLjLLcWtd4sNrmJUMHyM+1xibTjH82Zh01TNlhsrOhdKTe00uAzZQmN6+KW+sDa/JD2PSVQ873m29yf+1Q9VDzfEYlHi1G5LKBBWZbtEsHbFwb1oYDwr1ZiF/2bnCSg1OBE/pfr9/bWx26UxJL3ONPISOLKUvQza0LZUxSKyjpdTGa/vDEr25rddbMM0Q3O6Lx3rqFvU+x6UrRKQY7tyrZecmD9FODy8uLizTmilwNj0kraNcAJhOp5aGVwsAGD5VmJBrWWbJSgWT9zrzWepQF47RaGSiKfeGx6Szi3gzmX/HHbihwBser4B9UJYpFBNX4R6vTn3VQnez0SymnrHQMsRYGTr1dSk34ljRqS/EMd2pLQ8YBp3a1PLfcqCpo8gtHkZFHKkTX6fs3MY0blKnth66rKCnU0VRGu37ONrQaA4eZDFtWAu2fXj9zjFkxTBOo8F7t926gTp/83Kyzzcy2kZD6xiqxTYnHLRFm3vHiRSwNSjkz3hoIzo8lCKWUlg/YtGs7tObunDAZfpDLbfEI15zsEIY3U/x/gHHc/G1zltnAgAAAABJRU5ErkJggg==);
 }
-</style> <div class="d-flex flex-row-reverse mt-0">
-<div class="p-2">
-<label id="switch" class="switch">
-<input type="checkbox" onchange="toggleTheme()" id="slider">
-<span class="slider round">
-</span>
-</label>
-</div>
-</div>
+</style> 
+<body style="padding-top: 70px; padding-bottom: 70px;">
+   </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<div id="mainDiv">
 
-<div class="alert alert-info text-left" role="alert" style="margin: 15px;">
-<ul><li>For Any problem for account after buy just open report and seller will fix it or replace.</li><li>There is <b> 109 </b> Accounts Available.</li></ul>
-<!---website Infos--->
+    
+    
 </div>
-<input type=hidden id="cat" name="cat" value="1" />
-<div class="row m-3 pt-1" style="color: var(--font-color);">
-<div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-<label for="infos" style="margin-bottom: 10px; margin-top: 5px">Website Info :</label>
-<select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-<option value="">All Websites</option>
- </select>
-
-<!---Countries search--->
-</div>
-<div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-<label for="infos" style="margin-bottom: 10px; margin-top: 5px">Details:</label>
-<input type="search" class="form-control" id="infos" style="color: var(--font-color); background-color: var(--color-card);">
-</div>
-<div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-<label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
-<select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-<option value="">All Countries</option>
-</select>
-
-<!---seller--->
-</div>
-<div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-<label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
-<select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-<option value="">All Sellers</option>
- </select>
-</div>
-<table width=“100%”  class=“table table-striped table-bordered table-condensed sticky-header” id=“myTable”>
-<thead>
-    <tr>
-      <th scope=“col” >ID</th>
-      <th scope=“col” >Country</th>
-      <th scope=“col”>website Name</th>
-      <th scope=“col”> Details</th>
-      <th scope=“col”>Seller</th>
-      <th scope=“col”>Price</th>
-      <th scope=“col”>Added on </th>
-      <th scope=“col”>Buy</th>
-    </tr>
-</thead>
-  <tbody>
- <?php
-include("cr.php");
-$q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
- while($row = mysqli_fetch_assoc($q)){
-	 
-	 	 $countryfullname = $row['country'];
-	  $code = array_search("$countryfullname", $countrycodes);
-	 $countrycode = strtolower($code);
-	    $qer = mysqli_query($dbcon, "SELECT * FROM resseller WHERE username='".$row['resseller']."'")or die(mysql_error());
-		   while($rpw = mysqli_fetch_assoc($qer))
-			 $SellerNick = "seller".$rpw["id"]."";
-     echo "
- <tr>     
-    <td id='id'>".htmlspecialchars($row['id'])."</td>
-    <td id='flag'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
-    <td id='sitename'> ".htmlspecialchars($row['sitename'])." </td> 
-	<td id='infos'> ".htmlspecialchars($row['infos'])." </td>
-    <td id='1seller'> ".htmlspecialchars($SellerNick)."</td>
-    <td id='price'>".htmlspecialchars($row['price'])."</td>
-    <td id='created_date'> ".$row['date']."</td>";
-    echo '
-    <td>
-	<span id="premium'.$row['id'].'" title="buy" type="premium"><a onclick="javascript:buythistool('.$row['id'].')" class="btn btn-primary btn-xs"><font color=white>Buy</font></a></span><center>
-    </td>
-            </tr>
-     ';
- }
-
- ?>
-<script type="text/javascript">
-$(document).ready(function () {
-    $('#myTable').DataTable();
-});
-$('#filterbutton').click(function () {$("#table tbody tr").each(function() {var ck1 = $.trim( $(this).find("#account_country").text().toLowerCase() );var ck2 = $.trim( $(this).find("#account_sitename").text().toLowerCase() );var ck3 = $.trim( $(this).find("#account_seller").text().toLowerCase() ); var val1 = $.trim( $('select[name="account_country"]').val().toLowerCase() );var val2 = $.trim( $('input[name="account_sitename"]').val().toLowerCase() );var val3 = $.trim( $('select[name="account_seller"]').val().toLowerCase() ); if((ck1 != val1 && val1 != '' ) || ck2.indexOf(val2)==-1 || (ck3 != val3 && val3 != '' )){ $(this).hide();  }else{ $(this).show(); } });$('#filterbutton').prop('disabled', true);});$('.filterselect').change(function () {$('#filterbutton').prop('disabled', false);});$('.filterinput').keyup(function () {$('#filterbutton').prop('disabled', false);});
-function buythistool(id){
-  bootbox.confirm("Are you sure?", function(result) {
-        if(result ==true){
-      $.ajax({
-     method:"GET",
-     url:"buytool.php?id="+id+"&t=accounts",
-     dataType:"text",
-     success:function(data){
-         if(data.match(/<button/)){
-		 $("#account"+id).html(data).show();
-         }else{
-            bootbox.alert('<center><img src="files/img/balance.png"><h2><b>No enough balance !</b></h2><h4>Please refill your balance <a class="btn btn-primary btn-xs"  href="addBalance.html" onclick="window.open(this.href);return false;" >Add Balance <span class="glyphicon glyphicon-plus"></span></a></h4></center>')
-         }
-     },
-   });
-       ;}
-  });
-}
-
-function openitem(order){
-  $("#myModalLabel").text('Order #'+order);
-  $('#myModal').modal('show');
-  $.ajax({
-    type:       'GET',
-    url:        'showOrder'+order+'.html',
-    success:    function(data)
-    {
-        $("#modelbody").html(data).show();
-    }});
-
-}
-
-</script>
-
-
-</div>
-</div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
-<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-notify modal-success" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<p class="heading" id="myModalHeader"></p>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true" class="white-text">&times;</span>
-</button>
-</div>
-<div class="modal-body" id="modelbody">
-</div>
-<div class="modal-footer justify-content-center">
-<a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Close</a>
-</div>
-</div>
-</div>
-</div>
-
-<div class="modal fade" id="modalConfirmBuy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-sm modal-notify modal-info" role="document">
-
-<div class="modal-content text-center">
-
-<div class="modal-header d-flex justify-content-center">
-<p class="heading">Are you sure?</p>
-</div>
-
-<div class="modal-body">
-<i class='fas fa-shopping-cart fa-4x animated rotateIn'></i>
-</div>
-
-<div class="modal-footer flex-center">
-<a onClick='confirmbye()' class="btn btn-outline-info waves-effect" data-dismiss="modal">Yes</a>
-<a type="button" class="btn btn-info" data-dismiss="modal">No</a>
-</div>
-</div>
-
-</div>
-</div>
-
-
-<div class="modal fade top" id="modalCoupon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
-<div class="modal-dialog modal-frame modal-top modal-notify modal-danger" role="document">
-
-<div class="modal-content">
-
-<div class="modal-body">
-<div class="row d-flex justify-content-center align-items-center">
-<img src="layout/images/balance.png">
-<span class="pt-3 mx-4" style="font-size: 14 px"><b>No enough balance !</b> Please refill your balance</span>
-<a type="button" href="addBalance" onclick="window.open(this.href);return false;" class="btn btn-danger">Add Balance
-<i class="fas fa-book ml-1 white-text"></i>
-</a>
-<a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<script>
-$(function(){
-    $("#myTable").dataTable();
-  })
-<script>(function(){var js = "window['__CF$cv$params']={r:'7a4a0e5ded56b82e',m:'uZKOE6wmw5dUNtnaq0pWx7s_b0mVBxG2ufSUOjnyIhM-1678267791-0-AdBo7J0DtIFDIV/rZvLtfl7Sf1U/8w/o7x4d6itCU7LKLeXo/FaBDPywj9lrZbdaBHan/fPQWjM8UFLdckhMUBcZczQg3TMMseTYi0xb/Go4ZMrGbscCJjab/V1oNwJ/sA==',s:[0xf3aae695ce,0xc48fdeb19e],u:'/cdn-cgi/challenge-platform/h/b'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/b/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</body>
 </html>
