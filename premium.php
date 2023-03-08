@@ -15,19 +15,17 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   <li class="active"><a href="#filter" data-toggle="tab">Filter</a></li>
 </ul>
 <div id="myTabContent" class="tab-content" >
- 
- <div class="tab-pane active in" id="filter">
-
- <select class='filterselect form-control input-sm' name="account_country"><option value="">All Countries</option><?php
+  <div class="tab-pane active in" id="filter"><table class="table"><thead><tr><th>Country</th>
+<th>Site Name</th>
+<th>Seller</th>
+<th></th></tr></thead><tbody><tr><td><select class='filterselect form-control input-sm' name="account_country"><option value="">ALL</option>
+<?php
 $query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `accounts` WHERE `sold` = '0' ORDER BY country ASC");
 	while($row = mysqli_fetch_assoc($query)){
 	echo '<option value="'.$row['country'].'">'.$row['country'].'</option>';
 	}
 ?>
-
-<input class='search form-control input-sm' name="account_sitename" size='3'>
-
-<select class='filterselect form-control input-sm' name="account_seller"><option value="">ALL</option>
+</select></td><td><input class='filterinput form-control input-sm' name="account_sitename" size='3'></td><td><select class='filterselect form-control input-sm' name="account_seller"><option value="">ALL</option>
 <?php
 $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHERE `sold` = '0' ORDER BY resseller ASC");
 	while($row = mysqli_fetch_assoc($query)){
@@ -41,7 +39,7 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
 </div>
 
 
-<table width="100%"  class="table table-responsive-md table id="table">
+<table width="100%"  class="table table-striped table-bordered table-condensed sticky-header" id="table">
 <thead>
     <tr>
       <th scope="col" >Country</th>
@@ -83,62 +81,12 @@ $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()
  }
 
  ?>
- 
-
-
-
-<ul class="nav nav-tabs">
-<div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
-          <div class="col-sm-12 table-responsive">
-            <table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-              <thead>
-                <tr>
-                  <th scope="1"></th>
-                  <th class="all">ID</th>
-                  <th scope="3">Country</th>
-                  <th scope="4">Website Name</th>
-                  <th scope="6">Details</th>
-                  <th scope="7">Price</th>
-                  <th scope="8">Seller</th>
-                  <th scope="10">Date Created</th>
-                  <th class="all">Buy</th>
-                </tr>
-              </thead>
-            </table>
- <?php
-include("cr.php");
-$q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
- while($row = mysqli_fetch_assoc($q)){
-	 
-	 	 $countryfullname = $row['country'];
-	  $code = array_search("$countryfullname", $countrycodes);
-	 $countrycode = strtolower($code);
-	    $qer = mysqli_query($dbcon, "SELECT * FROM resseller WHERE username='".$row['resseller']."'")or die(mysql_error());
-		   while($rpw = mysqli_fetch_assoc($qer))
-			 $SellerNick = "seller".$rpw["id"]."";
-     echo "
- <tr>     
-    <td id='account_country'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
-    <td id='account_sitename'> ".htmlspecialchars($row['sitename'])." </td> 
-	<td> ".htmlspecialchars($row['infos'])." </td>
-    <td id='account_seller'> ".htmlspecialchars($SellerNick)."</td>
-    <td> ".htmlspecialchars($row['price'])."</td>
-	    <td> ".$row['date']."</td>";
-    echo '
-    <td>
-	<span id="premium'.$row['id'].'" title="buy" type="premium"><a onclick="javascript:buythistool('.$row['id'].')" class="btn btn-primary btn-xs"><font color=white>Buy</font></a></span><center>
-    </td>
-            </tr>
-     ';
- }
-
- 
-
- 
 <script type="text/javascript">
-$('#filterbutton').click(function () {$("#table tbody tr").each(function() {var ck1 = $.trim( $(this).find("#account_country").text().toLowerCase() );var ck2 = $.trim( $(this).find("#account_sitename").text().toLowerCase() );var ck3 = $.trim( $(this).find("#account_seller").text().toLowerCase() ); var val1 = $.trim( $('select[name="account_country"]').val().toLowerCase() );var val2 = $.trim( $('input[name="account_sitename"]').val().toLowerCase() );var val3 = $.trim( $('select[name="account_seller"]').val().toLowerCase() ); if((ck1 != val1 && val1 != '' ) || ck2.indexOf(val2)==-1 || (ck3 != val3 && val3 != '' )){ $(this).hide();  }else{ $(this).show(); } });$('#filterbutton').prop('disabled', true);});$('.filterselect').change(function () {$('#filterbutton').prop('disabled', false);});$('.search').keyup(function () {$('#filterbutton').prop('disabled', false);});
+$('#filterbutton').click(function () {$("#table tbody tr").each(function() {var ck1 = $.trim( $(this).find("#account_country").text().toLowerCase() );var ck2 = $.trim( $(this).find("#account_sitename").text().toLowerCase() );var ck3 = $.trim( $(this).find("#account_seller").text().toLowerCase() ); var val1 = $.trim( $('select[name="account_country"]').val().toLowerCase() );var val2 = $.trim( $('input[name="account_sitename"]').val().toLowerCase() );var val3 = $.trim( $('select[name="account_seller"]').val().toLowerCase() ); if((ck1 != val1 && val1 != '' ) || ck2.indexOf(val2)==-1 || (ck3 != val3 && val3 != '' )){ $(this).hide();  }else{ $(this).show(); } });
+$('#filterbutton').prop('disabled', true);});$('.filterselect').change(
+  function () {$'#filterbutton').prop('disabled', false);});$('.filterinput').keyup(function () {$('#filterbutton').prop('disabled', false);});
 
-function buy this tool(id){
+function buythistool(id){
   bootbox.confirm("Are you sure?", function(result) {
         if(result ==true){
       $.ajax({
