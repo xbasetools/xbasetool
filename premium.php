@@ -392,7 +392,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   </div>
   <!-- /.container-fluid -->
 </nav>
-<div id="mainDiv" class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
+<div id="mainDiv">
         <div class=" table-responsive">
           <table class="table responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
             <thead>
