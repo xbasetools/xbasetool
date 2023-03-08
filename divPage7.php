@@ -77,8 +77,8 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `accounts` WHER
  </select>
 </div>
 
-
-<table width="100%"  class="table-responsive-xxl" id="table">
+<div class="table-responsive-md">
+  <table class="table" id="table">
 <thead>
     <tr>
      <th scope="col">#</th>
@@ -104,13 +104,14 @@ $q = mysqli_query($dbcon, "SELECT * FROM accounts WHERE sold='0' ORDER BY RAND()
 		   while($rpw = mysqli_fetch_assoc($qer))
 			 $SellerNick = "seller".$rpw["id"]."";
      echo "
- <tr>     
+ <tr
+    <td id='id'> ".$row['id']."</td>
     <td id='country'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
     <td id='website'> ".htmlspecialchars($row['sitename'])." </td> 
 	<td id='details> ".htmlspecialchars($row['infos'])." </td>
     <td id='idseller'> ".htmlspecialchars($SellerNick)."</td>
     <td id='price'> ".htmlspecialchars($row['price'])."</td>
-	    <td id='created_date'> ".$row['date']."</td>";
+    <td id='date'> ".htmlspecialchars($row['date'])."</td>";
     echo '
     <td>
 	<span id="premium'.$row['id'].'" title="buy" type="premium"><a onclick="javascript:buythistool('.$row['id'].')" class="btn btn-primary btn-xs"><font color=white>Buy</font></a></span><center>
