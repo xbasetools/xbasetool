@@ -99,60 +99,40 @@ $q = mysqli_query($dbcon, “SELECT * FROM leads WHERE sold=‘0’ ORDER BY RAN
 </table>
 
 <script type="text/javascript">
-$('#filterbutton').click(function () {
-  $("#table tbody tr").each(function() {
-    var ck1 = $.trim( $(this).find("#leads_country").text().toLowerCase() );
-    var ck2 = $.trim( $(this).find("#leads_about").text().toLowerCase() );
-    var ck3 = $.trim( $(this).find("#leads_domains").text().toLowerCase() );
-    var ck4 = $.trim( $(this).find("#leads_seller").text().toLowerCase() ); 
-    var val1 = $.trim( $('select[name="leads_country"]').val().toLowerCase() );
-    var val2 = $.trim( $('input[name="leads_about"]').val().toLowerCase() );
-    var val3 = $.trim( $('input[name="leads_domains"]').val().toLowerCase() );
-    var val4 = $.trim( $('select[name="leads_seller"]').val().toLowerCase() ); 
-       
-      if((ck1 != val1 && val1 != '' ) || ck2.indexOf(val2)==-1 || ck3.indexOf(val3)==-1 || (ck4 != val4 && val4 != '' )){ 
-        
-        $(this).hide();  }else{ $(this).show(); } });
-        $('#filterbutton').prop('disabled', true);});
-        $('.filterselect').change(function () {
-          $('#filterbutton').prop('disabled', false);});
-          $('.filterinput').keyup(function () {
-            $('#filterbutton').prop('disabled', false);});
-         
-        function buythistool(id){
-  bootbox.confirm(“Are you sure?”, 
-    function(result) {
+function buyit(id,code,price){
+  $('#myModal').modal('hide');
+  bootbox.confirm("Are you sure?", function(result) {
         if(result ==true){
-      $.ajax({
-     method:”GET”,
-     url:”buytool.php?id=“+id+”&t=accounts”,
-     dataType:”text”,
-     success:function(data){
-         if(data.match(/<button/)){
-		 $(“#account”+id).html(data).show();
-         }else{
-            bootbox.alert(‘<center><img src=“files/img/balance.png”><h2><b>No enough balance !</b></h2><h4>Please refill your balance <a class=“btn btn-primary btn-xs”  href=“addBalance.html” onclick=“window.open(this.href);return false;” >Add Balance <span class=“glyphicon glyphicon-plus”></span></a></h4></center>’)
-         }
-     },
-   });
-       ;}
+
+          balance = $('#balance').text();
+          if (price <= balance){
+              $("#buy_"+id).html('Purchasing...').show();
+              $.ajax({
+                type:       'GET',
+                url:        'leadsbuy'+id+'-'+code+'.html',
+                success:    function(data)
+                {
+                  $("#buy_"+id).html(data).show();
+                  ajaxinfo();
+                }});
+          }
+          else {
+            bootbox.alert('<center><img src="files/img/balance.png"><h2><b>No enough balance !</b></h2><h4>Please refill your balance <a class="btn btn-primary btn-xs"  href="addBalance.html" onclick="window.open(this.href);return false;" >Add Balance <span class="glyphicon glyphicon-plus"></span></a></h4></center>', function() {});}}
   });
 }
-
-function openitem(order){
-  $(“#myModalLabel”).text(‘Order #’+order);
-  $(‘#myModal’).modal(‘show’);
-  $.ajax({
-    type:       ‘GET’,
-    url:        ‘showOrder’+order+’.html’,
-    success:    function(data)
-    {
-        $(“#modelbody”).html(data).show();
-    }});
+function leadinfo(id,code){
+   $("#myModalLabel").text('Sample');
+   $("#modelbody").html('');
+   $('#myModal').modal('show');
+      $.ajax({
+        type:       'GET',
+        url:        'leadsshow'+id+'-'+code+'.html',
+        success:    function(data)
+        {
+            $("#modelbody").html(data);
+        }});   
 
 }
 
+
 </script>
-
-
- 
