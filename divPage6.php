@@ -66,7 +66,35 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `leads` WHERE `
     </tr>
 </thead>
   <tbody>
-    {items}
+ <?php
+include(“cr.php”);
+$q = mysqli_query($dbcon, “SELECT * FROM leads WHERE sold=‘0’ ORDER BY RAND()”)or die(mysqli_error());
+ while($row = mysqli_fetch_assoc($q)){
+	 
+	 	 $countryfullname = $row[‘country’];
+	  $code = array_search(“$countryfullname”, $countrycodes);
+	 $countrycode = strtolower($code);
+	    $qer = mysqli_query($dbcon, “SELECT * FROM resseller WHERE username=‘”.$row[‘resseller’].”’”)or die(mysql_error());
+		   while($rpw = mysqli_fetch_assoc($qer))
+			 $SellerNick = “seller”.$rpw[“id”].””;
+     echo “
+ <tr>     
+    <td id=‘leads_country’><i class=‘flag-icon flag-icon-$countrycode’></i>&nbsp;”.htmlspecialchars($row[‘country’]).” </td>
+    <td id=‘leads_about’> “.htmlspecialchars($row[‘infos’]).” </td> 
+        <td id=‘leads_source’> “.htmlspecialchars($row[‘source’]).” </td> 
+	<td> “.htmlspecialchars($row[‘number’]).” </td>
+    <td id=‘leads_seller’> “.htmlspecialchars($SellerNick).”</td>
+    <td> “.htmlspecialchars($row[‘price’]).”</td>
+	    <td> “.$row[‘date’].”</td>”;
+    echo ‘
+    <td>
+	<span id=“leads’.$row[‘id’].’” title=“buy” type=“leads”><a onclick=“javascript:buythistool(‘.$row[‘id’].’)” class=“btn btn-primary btn-xs”><font color=white>Buy</font></a></span><center>
+    </td>
+            </tr>
+     ‘;
+ }
+
+ ?>
   </tbody>
 </table>
 
@@ -127,4 +155,4 @@ function openitem(order){
 </script>
 
 
-</select></td><td><in 
+ 
